@@ -11,7 +11,7 @@
     <div id="mainContainer">
 
       <div id="header">
-              <a href="index.php"><img class="ex" src="images/x.jpg" /></a>
+              <a href="index.php"><img class="ex" src="images/x.png" /></a>
       </div>
 
       <div id="Content">
