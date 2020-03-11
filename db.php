@@ -1,8 +1,8 @@
 <?php
-$servername = "remotemysql.com";
+$servername = "remotemysql.com:3306";
 $username = "amEitkqjL3";
 $password = "ZIRikuGHnT";
-$database = "amEitkqjL3"
+$database = "amEitkqjL3";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -12,15 +12,3 @@ if (!$conn) {
 }
 echo "Connected successfully";
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>This is a page</h1>
-  </body>
-</html>
