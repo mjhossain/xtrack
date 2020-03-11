@@ -3,6 +3,19 @@
 @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
 
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --black:#131313;
+  --white:#f1f1f1;
+  --grey: #151515;
+  --red: #D93030;
+}
+
 .logo-wrap{
     position: absolute;
 /*            border-radius: 20px;*/
@@ -15,19 +28,10 @@
     overflow: hidden;
 /*            filter: invert(1);*/
 }
-.logo-wrap .ex{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 10px;
-    width: 70px;
-    height: 70px;
-    border-radius: 20%;
-    background-color: #000;
-    background-image: url(../images/x.jpg);
-    background-size: 50px;
-    background-position: center;
-    background-repeat: no-repeat;
+.ex{
+  height: 40px;
+  width: 40px;
+  margin-top: 7vh;
 }
 a{
     text-decoration: none;
@@ -39,4 +43,31 @@ a{
     top: 3px;
     right: 0px;
     font-size: 32px;
+}
+
+#mainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#header {
+  width: 7vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-flow: column nowrap;
+  /* justify-content: center; */
+  align-items: center;
+  border-right: 2px solid #D93030;
+}
+
+#Content {
+  width: 93vw;
+  height: 100vh;
+  background-color: var(--grey);
 }

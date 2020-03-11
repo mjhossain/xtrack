@@ -8,27 +8,26 @@
     <link rel="stylesheet" href="style/stylesheet.css">
   </head>
   <body>
-      <a href="#"><div class="logo-wrap">
-          <span class="ex"></span><span class="track">Track</span>
-      </div></a>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-  <a href="db.php">Database</a> <br><br>
+    <div id="mainContainer">
 
-  <?php
-      echo "Hello World";
-   ?>
+      <div id="header">
+        <a href="#">
+
+              <a href="index.php"><img class="ex" src="images/x.jpg" /></a>
+
+        </a>
+      </div>
+
+      <div id="Content">
+
+      </div>
+
+
+
+    </div>
+
+
+
 
   </body>
 </html>
