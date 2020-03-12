@@ -17,14 +17,18 @@
   </head>
   <body>
       <header>
-          <a href="#"><div class="logo"></div><span>Track</span></a>
+          <a href=""><div class="logo"></div><span>Track</span></a>
           <nav>
               <a href="">About</a>
               <a href="">Support</a>
           </nav>
-          <button>Sign Up</button>
+          <button id="login">Login</button>
+          <button id="sign-up">Sign Up</button>
       </header>
+      
       <section>
+          
+          <!--Lading Page Text and Images-->
           <div class="center-content">
               <div class="container-fluid">
                   <div class="row">
@@ -36,9 +40,10 @@
                                   It is your money and you should know how and when you are spending it. <br><br>
                                   With XTrack you can manage your expenses seamlessly &amp; intuitively.
                               </p>
-                              <button>Get Started</button>
+                              <button class="get-started">Get Started</button>
                           </div>
                       </div>
+                      <!-- Bootstrap Carousel-->
                       <div class="col-md px-0 right">
                             <div class="carousel-wrap">
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -71,10 +76,78 @@
                   </div>
               </div>
           </div>
+          
+          <!-- Sign Up Form Page-->
+          <div class="form-wrap">
+              <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
+              <div class="logo"></div>
+                  <form action="" name="sign-up">
+                      <h1>Sign Up</h1>
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-sm-12 px-0">
+                                  <input type="text" placeholder="First Name" name="fname">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="text" placeholder="Last Name" name="lname">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="email" placeholder="Email Address" name="email">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="password" placeholder="Password" name="password">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="password" placeholder="Re-Enter Password" name="re-password">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="submit" value="Create Account" name="create-account" class="submit">
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          
+          <!-- Login Form Page-->
+          <div class="form-wrap-2">
+              <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
+              <div class="logo"></div>
+                  <form action="" name="login">
+                      <h1>Sign In</h1>
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-sm-12 px-0">
+                                  <input type="email" placeholder="Email Address" name="email">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="password" placeholder="Password" name="password">
+                              </div>
+                              <div class="col-sm-12 px-0">
+                                  <input type="submit" value="Sign In" name="login-btn" class="submit">
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          
       </section>
       
       <footer>Designed and Developed By <a href="#">Anup</a> &amp; <a href="#">Mohammed</a>.</footer>
+      
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
       
+      <!--Toggle Form Page-->
+      <script>
+          $('#sign-up, .get-started').click(function(){
+              $('.form-wrap').toggleClass('slide-in-right')
+          })
+          $('#login').click(function(){
+              $('.form-wrap-2').toggleClass('slide-in-right')
+          })
+          $('.close-btn').click(function(){
+              $('.form-wrap').removeClass('slide-in-right')
+              $('.form-wrap-2').removeClass('slide-in-right')
+          })
+      </script>
   </body>
 </html>

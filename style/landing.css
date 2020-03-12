@@ -8,6 +8,7 @@
 
 body{
 /*    background-color: #000;*/
+    overflow-x: hidden;
 }
 section{
     max-width: 1400px;
@@ -49,7 +50,6 @@ nav a{
     color: #000;
     transition: .4s;
     font-family: 'Open Sans', sans-serif;
-    
 }
 nav a:hover{
     transition: .4s;
@@ -84,6 +84,16 @@ button:hover{
 button:focus{
     outline: none;
 }
+#login{
+    width: auto;
+    background-color: transparent;
+    right: 180px;
+}
+#login:hover{
+    color: RGBA(52, 238, 160, 1.00);
+    background-color: transparent;
+}
+
 .center-content{
     max-width: 1200px;
     width: 100%;
@@ -140,9 +150,123 @@ footer a{
     
 }
 
+.form-wrap{
+/*
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+*/
+    position: absolute;
+    right: -100vw;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+    background-color: #fff;
+    z-index: 1000;
+    transition: .4s ease;
+}
+.form-wrap-2{
+/*
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+*/
+    position: absolute;
+    right: -100vw;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 50px;
+    background-color: #fff;
+    z-index: 1000;
+    transition: .4s ease;
+}
+.form-wrap-2 .logo{
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+}
+.slide-in-right{
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+form{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    margin: auto;
+}
+form h1{
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+.form-wrap .logo{
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+}
+form input{
+    margin-top: 10px;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+/*
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+*/
+    padding: 10px;
+    outline: none;
+    background-color: transparent;
+}
+form input:focus{
+    outline: none;
+}
+form input.submit{
+    margin: 10px auto;
+    background-color: RGBA(52, 238, 160, 1.00);
+    border: none;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+}
+button.close-btn{
+    width: auto;
+    position: absolute;
+    background-color: #777;
+    color: #fff;
+    padding-left: 50px;
+    padding-right: 40px;
+}
+button.close-btn img{
+    position: absolute;
+    bottom: 8px;
+    left: 20px;
+    filter: invert(100%);
+    pointer-events: none;
+}
 @media only screen and (max-width: 600px) {
     nav a{
         display: none;
+    }
+    button.close-btn{
+        bottom: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    form{
+        width: 100%;
     }
     footer{
         right: 0;
