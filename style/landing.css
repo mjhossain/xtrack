@@ -40,6 +40,8 @@ a span{
     color:RGBA(0, 0, 0, .7);
     font-family: 'Changa', sans-serif;
     font-weight: bold;
+    -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) .5s both;
+    animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) .5s both;
 }
 header nav{
     text-align: center;
@@ -94,6 +96,16 @@ button:focus{
     background-color: transparent;
 }
 
+#logout{
+    width: auto;
+    background-color: transparent;
+    right: 80px;
+}
+#logout:hover{
+    color: RGBA(52, 238, 160, 1.00);
+    background-color: transparent;
+}
+
 .center-content{
     max-width: 1200px;
     width: 100%;
@@ -104,6 +116,7 @@ button:focus{
     transform: translateY(-50%) translateX(-50%);
     padding-left: 50px;
     padding-right: 50px;
+    overflow-x: hidden;
 }
 .inside-center{
     position: relative;
@@ -140,9 +153,8 @@ button:focus{
 footer{
     width: 100%;
     position: absolute;
-    bottom: 20px;
-    right: 50px;
-    text-align: right;
+    bottom: 10px;
+    text-align: center;
     font-family: 'Inconsolata', monospace;
     color: #888;
 }
@@ -151,14 +163,8 @@ footer a{
 }
 
 .form-wrap{
-/*
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-*/
-    position: absolute;
-    right: -100vw;
+    right: -3000px;
     opacity: 0;
     visibility: hidden;
     top: 0;
@@ -170,14 +176,8 @@ footer a{
     transition: .4s ease;
 }
 .form-wrap-2{
-/*
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-*/
-    position: absolute;
-    right: -100vw;
+    right: -3000px;
     opacity: 0;
     visibility: hidden;
     top: 0;
@@ -198,7 +198,7 @@ footer a{
     opacity: 1;
     visibility: visible;
 }
-form{
+#sign-up-form, #login-form{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -256,6 +256,131 @@ button.close-btn img{
     filter: invert(100%);
     pointer-events: none;
 }
+.login-email-err{
+    display: none;
+    color: RGBA(252, 91, 93, 1);
+    background-color: RGBA(252, 91, 93, .4);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.login-pass-err{
+    display: none;
+    color: RGBA(252, 91, 93, 1);
+    background-color: RGBA(252, 91, 93, .4);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.signup-pass-1-msg{
+/*    display: none;*/
+/*    color: RGBA(252, 91, 93, 1);*/
+/*    background-color: RGBA(252, 91, 93, .4);*/
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.signup-pass-err-2{
+    display: none;
+    color: RGBA(252, 91, 93, 1);
+    background-color: RGBA(252, 91, 93, .4);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.password-requirement{
+    display: none;
+}
+.password-list{
+    margin: 0;
+    color: darkgrey;
+}
+.signup-pass-1-msg{
+    color: darkgrey;
+}
+.error-icon{
+    margin-right: 10px;
+    pointer-events: none;
+}
+.six-char{
+/*    color: limegreen;*/
+}
+.up-case{
+/*    color: limegreen;*/
+}
+.one-num{
+/*    color: limegreen;*/
+}
+h1.name{color: #fb9a23}
+#deposit-form .deposit-input{
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: #777;
+    font-family: 'Open Sans', sans-serif;
+}
+.right-img{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.money{
+    position: relative;
+    top: 29px;
+    right: -5px;
+    opacity: .6;
+    pointer-events: none;
+}
+#deposit-form button{
+    float: right;
+}
+.left{
+    overflow-x: hidden;
+}
+.deposit-slide-wrap{
+    position: relative;
+    transition: .4s ease;
+    padding-left: 20px;
+}
+.deposit-slide{
+    left: -600px;
+}
+.deposit-slide-wrap-2{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transition: .4s ease;
+    left: 400px;
+    opacity: 0;
+    visibility: hidden;
+}
+.description-slide{
+    left: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+.deposit-btn{
+    font-size: 1em;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    line-height: 0px;
+    border: none;
+    background-color: RGBA(52, 238, 160, 1.00);
+    cursor: pointer;
+    outline: none;
+    transition: .4s;
+    font-family: 'Open Sans', sans-serif;
+    float: right;
+}
+.cancel{
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    background-color: transparent;
+}
+.cancel:hover{background-color: transparent;}
 @media only screen and (max-width: 600px) {
     nav a{
         display: none;
@@ -272,4 +397,30 @@ button.close-btn img{
         right: 0;
         text-align: center;
     }
+}
+
+
+@-webkit-keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }

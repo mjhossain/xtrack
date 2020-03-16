@@ -20,7 +20,8 @@
           <a href=""><div class="logo"></div><span>Track</span></a>
           <nav>
               <a href="">About</a>
-              <a href="">Support</a>
+              <a href="">Team</a>
+<!--              <a href="">Support</a>-->
           </nav>
           <button id="login">Login</button>
           <button id="sign-up">Sign Up</button>
@@ -32,7 +33,7 @@
           <div class="center-content">
               <div class="container-fluid">
                   <div class="row">
-                      <div class="col-md px-0 left">
+                      <div class="col-md order-md-1 order-2 px-0 left">
                           <div class="inside-center">
                               <span>Control</span>
                               <h1>Take control over your money</h1>
@@ -44,7 +45,7 @@
                           </div>
                       </div>
                       <!-- Bootstrap Carousel-->
-                      <div class="col-md px-0 right">
+                      <div class="col-md order-1  px-0 right">
                             <div class="carousel-wrap">
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                                     <!-- Indicators -->
@@ -78,10 +79,10 @@
           </div>
           
           <!-- Sign Up Form Page-->
-          <div class="form-wrap">
+          <div class="form-wrap signup-form">
               <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
               <div class="logo"></div>
-                  <form action="" name="sign-up">
+                  <form action="" name="sign-up" id="sign-up-form">
                       <h1>Sign Up</h1>
                       <div class="container-fluid">
                           <div class="row">
@@ -96,9 +97,19 @@
                               </div>
                               <div class="col-sm-12 px-0">
                                   <input type="password" placeholder="Password" name="password">
+                                  <div class="password-requirement">
+                                      <p class="signup-pass-1-msg">
+                                          Your password must be atleast :
+                                      </p>
+                                      <ul class="password-list">
+                                          <li><span class="six-char"> 6 characters </span></li>
+                                          <li><span class="up-case">Contain atleast 1 uppercase letter</span> </li><li><span class="one-num">Contain atleast 1 number</span></li> <br>
+                                      </ul>
+                                  </div>
                               </div>
                               <div class="col-sm-12 px-0">
                                   <input type="password" placeholder="Re-Enter Password" name="re-password">
+                                  <p class="signup-pass-err-2"><img src="images/caution.png" width="15px" class="error-icon">Please make sure your passwords match</p>
                               </div>
                               <div class="col-sm-12 px-0">
                                   <input type="submit" value="Create Account" name="create-account" class="submit">
@@ -109,18 +120,20 @@
               </div>
           
           <!-- Login Form Page-->
-          <div class="form-wrap-2">
+          <div class="form-wrap-2 login-form">
               <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
               <div class="logo"></div>
-                  <form action="" name="login">
+                  <form action="" name="login" id="login-form">
                       <h1>Sign In</h1>
                       <div class="container-fluid">
                           <div class="row">
                               <div class="col-sm-12 px-0">
                                   <input type="email" placeholder="Email Address" name="email">
+                                  <p class="login-email-err"><img src="images/caution.png" width="15px" class="error-icon">Enter a valid email address</p>
                               </div>
                               <div class="col-sm-12 px-0">
                                   <input type="password" placeholder="Password" name="password">
+                                  <p class="login-pass-err"><img src="images/caution.png" width="15px" class="error-icon">Enter a valid password</p>
                               </div>
                               <div class="col-sm-12 px-0">
                                   <input type="submit" value="Sign In" name="login-btn" class="submit">
