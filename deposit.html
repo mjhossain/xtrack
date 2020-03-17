@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      
+      <link rel="stylesheet" href="style/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      
+      <link rel="stylesheet" href="style/landing.css">
+      
+      <title>XTrack | Deposit Money</title>
+  </head>
+  <body>
+      <header>
+          <a href=""><div class="logo"></div><span>Track</span></a>
+          <nav>
+
+<!--              <a href="">Support</a>-->
+          </nav>
+          <button id="logout">Logout</button>
+      </header>
+      
+      <section>
+          <div class="center-content">
+              <div class="contaier-fluid">
+                  <div class="row">
+                      <div class="col-md-5 order-md-1 order-2 left px-0">
+                          <div class="deposit-slide-wrap">
+                              <h1 class="name">Hello Alex 👋</h1>
+                              <h1>Make a deposit and get started</h1>
+                              <form id="deposit-form">
+                                  <div class="row">
+                                      <div class="col-1 px-0">
+                                          <img class="money" src="images/money.png" width="30px">
+                                      </div>
+                                      <div class="col-10 px-0">
+                                          <input type="text" class="deposit-input" placeholder="0.00" autofocus>
+                                      </div>
+                                  </div>
+                                  <button class="next-btn">Next</button>
+                              </form>
+                          </div>
+                          <div class="deposit-slide-wrap-2">
+                              <h1>You're almost there!</h1>
+                              <form id="deposit-form">
+                                  <input type="text" placeholder="Enter Description" autofocus>
+                                  <button class="cancel">Go back</button>
+                                  <input type="submit" value="Deposit" name="deposit-btn" class="deposit-btn">
+<!--                                  <button class="next-btn">Deposit</button>-->
+                              </form>
+                          </div>
+                      </div>
+                      <div class="col-md order-1 px-0 right">
+                          <div class="right-img">
+                              <img src="images/wallet.png" width="200px">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <footer>Designed and Developed By <a href="#">Anup</a> &amp; <a href="#">Mohammed</a>.</footer>
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+      
+      <!--Toggle Form Page-->
+      <script>
+          $('#sign-up, .get-started').click(function(){
+              $('.form-wrap').toggleClass('slide-in-right')
+          })
+          $('#login').click(function(){
+              $('.form-wrap-2').toggleClass('slide-in-right')
+          })
+          $('.close-btn').click(function(){
+              $('.form-wrap').removeClass('slide-in-right')
+              $('.form-wrap-2').removeClass('slide-in-right')
+          })
+          
+          $('.next-btn').click(function(event){
+              var deposit_input = $.trim($('input.deposit-input').val())
+              event.preventDefault()
+              if(deposit_input!=""){
+                  $('.deposit-slide-wrap-2').toggleClass('description-slide')
+                  $('.deposit-slide-wrap').toggleClass('deposit-slide')
+              }
+          })
+          $('.cancel').click(function(event){
+              event.preventDefault()
+              $('.deposit-slide-wrap-2').removeClass('description-slide')
+              $('.deposit-slide-wrap').removeClass('deposit-slide')
+          })
+      </script>
+  </body>
+</html>
