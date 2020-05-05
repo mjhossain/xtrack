@@ -33,17 +33,17 @@
                 <h1>Hello Candice</h1>
                 <div class="mt-5 row justify-content-center">
                     <div class="col-lg-4 box">
-                        <div class="box1">
+                        <div class="box1 shadow">
 
                         </div>
                     </div>
                     <div class="col-lg-4 box">
-                        <div class="box2">
+                        <div class="box2 shadow">
 
                         </div>
                     </div>
                     <div class="col-lg-4 box">
-                        <div class="box3">
+                        <div class="box3 shadow">
 
                         </div>
                     </div>

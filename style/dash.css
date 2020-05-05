@@ -86,7 +86,7 @@ button.logout {
 }
 
 .box {
-    height: 30vh;
+    height: 40vh;
     /* background-color: black; */
     padding: 10px;
 }
@@ -94,14 +94,17 @@ button.logout {
 .box1 {
     height: 100%;
     background-color: aquamarine;
+    border-radius: 20px;
 }
 
 .box2 {
     height: 100%;
     background-color: hotpink;
+    border-radius: 20px;
 }
 
 .box3 {
     height: 100%;
     background-color: chocolate;
+    border-radius: 20px;
 }
