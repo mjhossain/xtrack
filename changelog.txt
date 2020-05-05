@@ -1,1 +1,8 @@
-Anup / 03/17 - change the back ground color to white and keep #21ed9a as a primary color
+Tasks:
+
+Anup: 
+    1. Fix Login and Registration frontend validation
+
+Mo: 
+    1. Create dashboard.php
+    2. Add backend validation after Anup is done with frontend validation
