@@ -13,6 +13,7 @@
     --white: #f1f1f1;
     --grey: #151515;
     --red: #D93030;
+    --green: #34EEA0;
 }
 
 .body-wrap {
@@ -25,6 +26,10 @@
     left: 0;
     width: 100px;
     height: 100%;
+    background-color: #f1f1f1;
+    -webkit-box-shadow: 2px 0px 4px -1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 2px 0px 4px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
 .main-content {
@@ -35,8 +40,8 @@
 .margin-fix {
     height: 100%;
     margin-left: 100px;
-    background-color: #fafafa;
-    padding: 30px;
+    background-color: #fff;
+    padding: 40px;
 }
 
 h1 {
@@ -71,8 +76,12 @@ nav button img {
     opacity: .5;
 }
 
-.active {
+.nav-item:hover {
     border-right: solid #34EEA0;
+}
+
+.logout:hover {
+    border-right: solid #ff5252;
 }
 
 button.logout {
@@ -86,7 +95,7 @@ button.logout {
 }
 
 .box {
-    height: 40vh;
+    height: 35vh;
     /* background-color: black; */
     padding: 10px;
 }
@@ -95,16 +104,79 @@ button.logout {
     height: 100%;
     background-color: aquamarine;
     border-radius: 20px;
+    padding: 15px 30px 15px 30px;
 }
 
 .box2 {
     height: 100%;
-    background-color: hotpink;
+    background-color: var(--white);
     border-radius: 20px;
+    padding: 15px 30px 15px 30px;
 }
 
 .box3 {
     height: 100%;
-    background-color: chocolate;
+    background-color: var(--white);
     border-radius: 20px;
+    padding: 15px 30px 15px 30px;
+}
+
+.accDetailsBox {
+    height: 30vh;
+    padding: 0 20px 0 20px;
+}
+
+.accDetails {
+    height: 100%;
+    background-color: var(--white);
+    padding: 15px 20px 15px 20px;
+    border-radius: 20px;
+}
+
+.topBar {
+    padding: 0 0 10px 20px;
+    border-bottom: 2px solid var(--white);
+}
+
+.paymentMethod {
+    border-radius: 20px;
+    background-color: var(--green);
+    height: 80px;
+    width: 80px;
+    border: none;
+    transition-duration: 1s;
+}
+
+.paymentMethod:hover {
+    transform: scale(1.1);
+}
+
+.addExpense {
+    height: 10vh;
+    background-color: var(--green);
+    border-radius: 20px;
+    width: 100%;
+    border: none;
+    /* color: white; */
+    font-size: 1.3em;
+    font-weight: bolder;
+    transition-duration: 0.5s;
+}
+
+.addExpense:hover {
+    transform: scale(1.04);
+}
+
+
+/* .addExpBtn {
+    padding: 20px 0 20px 25px;
+} */
+
+.add {
+    color: #fff;
+}
+
+.addText {
+    font-size: 1.5em;
+    font-weight: bolder;
 }
