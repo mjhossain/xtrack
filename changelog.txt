@@ -1,7 +1,7 @@
 Tasks:
 
 Anup: 
-    1. Fix Login and Registration frontend validation
+    1. Fix Login and Registration frontend validation (Finished on: Tue, May 5, 2020 )
 
 Mo: 
     1. Create dashboard.php
