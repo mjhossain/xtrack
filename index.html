@@ -24,8 +24,8 @@
               <a href="">Team</a>
 <!--              <a href="">Support</a>-->
           </nav>
-          <button id="login">Login</button>
-          <button id="sign-up">Sign Up</button>
+          <a href="login.html"><button id="login">Login</button></a>
+          <a href="register.html"><button id="sign-up">Sign Up</button></a>
       </header>
 
       <section>
@@ -42,7 +42,7 @@
                                   It is your money and you should know how and when you are spending it. <br><br>
                                   With XTrack you can manage your expenses seamlessly &amp; intuitively.
                               </p>
-                              <button class="get-started">Get Started</button>
+                              <a href="register.html"><button class="get-started">Get Started</button></a>
                           </div>
                       </div>
                       <!-- Bootstrap Carousel-->
@@ -79,71 +79,6 @@
               </div>
           </div>
 
-          <!-- Sign Up Form Page-->
-          <div class="form-wrap signup-form">
-              <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
-              <div class="logo"></div>
-                  <form action="" name="sign-up" id="sign-up-form">
-                      <h1>Sign Up</h1>
-                      <div class="container-fluid">
-                          <div class="row">
-                              <div class="col-sm-12 px-0">
-                                  <input type="text" placeholder="First Name" name="fname">
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="text" placeholder="Last Name" name="lname">
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="email" placeholder="Email Address" name="email">
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="password" placeholder="Password" name="password">
-                                  <div class="password-requirement">
-                                      <p class="signup-pass-1-msg">
-                                          Your password must be atleast :
-                                      </p>
-                                      <ul class="password-list">
-                                          <li><span class="six-char"> 6 characters </span></li>
-                                          <li><span class="up-case">Contain atleast 1 uppercase letter</span> </li><li><span class="one-num">Contain atleast 1 number</span></li> <br>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="password" placeholder="Re-Enter Password" name="re-password">
-                                  <p class="signup-pass-err-2"><img src="images/caution.png" width="15px" class="error-icon">Please make sure your passwords match</p>
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="submit" value="Create Account" name="create-account" class="submit">
-                              </div>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-
-          <!-- Login Form Page-->
-          <div class="form-wrap-2 login-form">
-              <button class="close-btn"><img src="images/back.png" width="20px">Back To Home</button>
-              <div class="logo"></div>
-                  <form action="" name="login" id="login-form">
-                      <h1>Sign In</h1>
-                      <div class="container-fluid">
-                          <div class="row">
-                              <div class="col-sm-12 px-0">
-                                  <input type="email" placeholder="Email Address" name="email">
-                                  <p class="login-email-err"><img src="images/caution.png" width="15px" class="error-icon">Enter a valid email address</p>
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="password" placeholder="Password" name="password">
-                                  <p class="login-pass-err"><img src="images/caution.png" width="15px" class="error-icon">Enter a valid password</p>
-                              </div>
-                              <div class="col-sm-12 px-0">
-                                  <input type="submit" value="Sign In" name="login-btn" class="submit">
-                              </div>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-
       </section>
 
       <footer>Designed and Developed By <a href="#">Anup</a> &amp; <a href="#">Mohammed</a>.</footer>
@@ -151,6 +86,7 @@
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
       <!--Toggle Form Page-->
+<!--
       <script>
           $('#sign-up, .get-started').click(function(){
               $('.form-wrap').toggleClass('slide-in-right')
@@ -163,6 +99,7 @@
               $('.form-wrap-2').removeClass('slide-in-right')
           })
       </script>
+-->
   </body>
 </html>
 
