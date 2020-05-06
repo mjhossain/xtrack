@@ -21,7 +21,7 @@
                 </div>
             </a>
             <nav>
-                <a href="#"><button class="nav-item" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
+                <a href="dashboard.php"><button class="nav-item active" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
                 <a href="#"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
                 <a href="#"><button class="nav-item"><img src="images/dashboard-img/headset.png" width="40%"></button></a>
                 <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>

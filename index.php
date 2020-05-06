@@ -18,14 +18,14 @@
   </head>
   <body>
       <header>
-          <a href=""><div class="logo"></div><span>Track</span></a>
+          <a href="index.php"><div class="logo"></div><span>Track</span></a>
           <nav>
               <a href="">About</a>
               <a href="">Team</a>
 <!--              <a href="">Support</a>-->
           </nav>
-          <a href="login.html"><button id="login">Login</button></a>
-          <a href="register.html"><button id="sign-up">Sign Up</button></a>
+          <a href="login.php"><button id="login">Login</button></a>
+          <a href="register.php"><button id="sign-up">Sign Up</button></a>
       </header>
 
       <section>
@@ -42,7 +42,7 @@
                                   It is your money and you should know how and when you are spending it. <br><br>
                                   With XTrack you can manage your expenses seamlessly &amp; intuitively.
                               </p>
-                              <a href="register.html"><button class="get-started">Get Started</button></a>
+                              <a href="register.php"><button class="get-started">Get Started</button></a>
                           </div>
                       </div>
                       <!-- Bootstrap Carousel-->

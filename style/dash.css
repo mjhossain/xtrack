@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Changa&display=swap');
+/*    font-family: 'Open Sans', sans-serif;*/
+/*    font-family: 'Comfortaa', cursive;*/
+
 * {
     padding: 0;
     margin: 0;
@@ -76,6 +82,10 @@ nav button img {
     opacity: .5;
 }
 
+nav button.active{
+    border-right: 3px solid var(--green);
+}
+
 .nav-item:hover {
     border-right: solid #34EEA0;
 }
@@ -92,6 +102,12 @@ button.logout {
     background-color: transparent;
     border: none;
     opacity: .5;
+}
+
+td{
+/*    font-family: 'Changa', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+/*    font-family: 'Comfortaa', cursive;*/
 }
 
 .box {
@@ -162,6 +178,7 @@ button.logout {
     font-size: 1.3em;
     font-weight: bolder;
     transition-duration: 0.5s;
+    font-family: 'Changa', sans-serif;
 }
 
 .addExpense:hover {

@@ -15,14 +15,14 @@
           <div class="container-fluid content-wrap">
               <div class="row">
                   <div class="col-md-5 left">
-                      <a href="index.html"><div class="logo"></div><span>Track</span></a>
+                      <a href="index.php"><div class="logo"></div><span>Track</span></a>
                       <div class="activity-img">
                       </div>
                       <div class="filler-shape"></div>
                   </div>
                   <div class="col-md">
                        <div class="login-option">
-                           <label for="register">Don't have an account?</label> <a href="register.html"><button  id="register">Register</button></a>
+                           <label for="register">Don't have an account?</label> <a href="register.php"><button  id="register">Register</button></a>
                       </div>
                       <form action="" name="" onsubmit="event.preventDefault()">
                           <h4>Login and effortlessly manage your finances in one place</h4>
