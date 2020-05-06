@@ -138,18 +138,19 @@ button.logout {
     border-bottom: 2px solid var(--white);
 }
 
-.paymentMethod {
+
+/* .paymentMethod {
     border-radius: 20px;
     background-color: var(--green);
-    height: 80px;
-    width: 80px;
+    height: 100%;
+    width: 100%;
     border: none;
-    transition-duration: 1s;
+    transition-duration: 0.4s;
 }
 
 .paymentMethod:hover {
-    transform: scale(1.1);
-}
+    transform: scale(1.02);
+} */
 
 .addExpense {
     height: 10vh;

@@ -51,24 +51,6 @@
                             <div class="row">
                                 <h6>Payment Methods</h6>
                             </div>
-                            <div class="row paymentMethodHolder justify-content-around align-items-around">
-                                <div class="row">
-                                    <button class="btn-lg paymentMethod">
-
-                                    </button>
-                                    <button class="ml-2 btn-lg paymentMethod">
-
-                                    </button>
-                                </div>
-                                <div class="row mt-2">
-                                    <button class="btn-lg paymentMethod">
-
-                                    </button>
-                                    <button class="ml-2 btn-lg paymentMethod">
-
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
