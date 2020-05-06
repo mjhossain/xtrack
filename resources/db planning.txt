@@ -1,0 +1,18 @@
+
+Register DB:
+
+full name
+phone
+email address
+password
+registered date
+
+user account DB:
+
+balance amt
+expense amt
+transaction description
+date
+time
+
+
