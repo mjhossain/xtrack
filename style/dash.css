@@ -192,7 +192,7 @@ p.total-summary{
 } */
 
 .addExpense {
-    height: 5vh;
+    height: 60px;
     background-color: var(--green);
     border: none;
     border-radius: 20px;
