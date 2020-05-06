@@ -299,10 +299,39 @@ p.error-msg{
 }
 @media only screen and (min-height:700px){
     form{
-        background-color: red;
         margin-top: 0px;
         padding: 50px;
         position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .left .filler-shape{
+        position: absolute;
+        margin-top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .white-filler-shape{
+        position: absolute;
+        margin-top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .left .filler-shape2{
+        position: absolute;
+        margin-top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .activity-img{
+        position: absolute;
+        margin-top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .activity-img2{
+        position: absolute;
+        margin-top: 0;
         top: 50%;
         transform: translateY(-50%);
     }

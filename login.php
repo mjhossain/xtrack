@@ -1,3 +1,4 @@
+<?php  ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,9 +9,9 @@
       <style media="screen">
       </style>
   </head>
-  <body> 
+  <body>
       <div class="full-height">
-         
+
           <div class="container-fluid content-wrap">
               <div class="row">
                   <div class="col-md-5 left">
