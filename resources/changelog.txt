@@ -4,5 +4,7 @@ Anup:
     1. Fix Login and Registration frontend validation (Finished on: Tue, May 5, 2020 )
 
 Mo: 
-    1. Create dashboard.php
-    2. Add backend validation after Anup is done with frontend validation
+    1. Create dashboard.php [DONE]
+    2. Add backend validation after Anup is done with frontend validation [DONE]
+    3. Registration [DONE]
+    4. Login [DONE]

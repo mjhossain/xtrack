@@ -26,7 +26,7 @@
                 <a href="#"><button class="nav-item"><img src="images/dashboard-img/headset.png" width="40%"></button></a>
                 <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>
             </nav>
-            <button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button>
+            <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
         </div>
         <div class="main-content">
             <div class="margin-fix">
