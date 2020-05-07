@@ -1,3 +1,53 @@
+
+<?php 
+
+require('functions/database.php');
+require('functions/functions.php');
+
+session_start();
+
+if(isset($_SESSION['loggedIn'])){
+    header('Location: dashboard.php');
+} else {
+    if(isset($_POST['register'])) {
+        $name = testName($_POST['fullname']);
+        $email = testEmail($_POST['email']);
+        $password = testPassword($_POST['password']);
+        $phone = safeInput($_POST['phone']);
+        $conPassword = safeInput($_POST['con-password']);
+
+        $hashedPassword = hashPassword($password);
+
+
+        if($name == fasle || $email == false || $password == false) {
+            echo "Input wrong";
+        } else {
+            
+            $query = "INSERT INTO users(fullName, email, password, phone, totalExpense)".
+                     "VALUES('$name', '$email', '$hashedPassword', '$phone', 0)";
+
+            if(mysqli_query($conn, $query)) {
+                session_unset();
+                header('Location: login.php');
+            } else {
+                // Find a solution for what to do when DB error
+                echo "Error: " . $query . "<br>" . mysqli_error($conn);
+            }
+        
+        }
+
+
+    } else {
+        
+    }
+}
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +83,7 @@
                       <div class="login-option">
                           <label for="login">Already have an account?</label> <a href="login.php"><button id="login">Login</button></a>
                       </div>
-                      <form action="" name="" id="sign-up-form" onsubmit="event.preventDefault()">
+                      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="" id="sign-up-form" onsubmit="event.preventDefault()">
                           <h4>Life is good when you’re on top of your money</h4>
 
                           <input class="err-border" type="text" name="fullname" id="fullname" placeholder="Full Name" autofocus>
@@ -48,7 +98,7 @@
                           <input type="password" name="password" id="password" placeholder="Password" oninput="checkPassword()">
                           <p class="error-msg passwordErr"></p>
 
-                          <input type="password" name="password" id="con-password" placeholder="Confirm Password">
+                          <input type="password" name="con-password" id="con-password" placeholder="Confirm Password">
                           <p class="error-msg conPasswordErr"></p>
 
                           <img class="back-btn" src="images/back.png" width="20px"><input type="button" value="Go Back" name="back" onclick="goBack();">

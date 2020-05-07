@@ -1,4 +1,39 @@
-<?php  ?>
+<?php
+require('functions/database.php');
+require('functions/functions.php');
+session_start();
+
+if(isset($_SESSION['loggedIn'])) {
+    header('Location: dashboard.php');
+} else {
+    if(isset($_POST['login'])){
+        $email = safeInput($_POST['email']);
+        $password = mysqli_real_escape_string($_POST['password']);
+
+        $query = "SELECT * FROM users where email = '$email' LIMIT 1";
+        $result = mysqli_query($conn, $query);
+        
+        if(mysqli_num_rows($result) > 0) {
+            
+            while($row = mysqli_fetch_assoc($result)) {
+                
+                if(password_verify($password, $row['password'])) {
+                    $_SESSION['loggedIn'] = true;
+                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['name'] = $row['fullName'];
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['totalExpense'] = $row['totalExpense'];
+                    header('Location: dashboard.php');
+                } else {
+                    echo "Password Verification Failed!!";
+                }
+            }
+        }
+    } else {
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +59,7 @@
                        <div class="login-option">
                            <label for="register">Don't have an account?</label> <a href="register.php"><button  id="register">Register</button></a>
                       </div>
-                      <form action="" name="" onsubmit="event.preventDefault()">
+                      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                           <h4>Login and effortlessly manage your finances in one place</h4>
                           <input type="email" name="email" id="email" placeholder="Email Address" autofocus>
                           <input type="password" name="password" id="password" placeholder="Password">
