@@ -1,3 +1,57 @@
+
+<?php 
+require('functions/database.php');
+require('functions/functions.php');
+require('functions/user_functions.php');
+session_start();
+
+
+
+
+
+
+if(!isset($_SESSION['loggedIn'])) {
+    header('Location: index.php');
+} else {
+
+    $activity_message = "";
+
+    $user_id = $_SESSION['user_id'];
+    $user_email = $_SESSION['email'];
+    $user_name = $_SESSION['name'];
+    $user_total_amount = getAmount($conn, $user_id);
+
+}
+
+
+
+
+
+
+
+if(isset($_POST['addExpense'])) {
+    $expAmount = safeInput($_POST['expAmount']);
+    $expDesc = safeInput($_POST['expDesc']);
+
+    $user_total_amount = getAmount($conn, $user_id);
+
+    $query = "INSERT INTO transctions(user_id, description, amount) VALUES ($user_id, '$expDesc', $expAmount)";
+
+    if(mysqli_query($conn, $query)) {
+        $user_total_amount = $user_total_amount + $expAmount;
+        $user_query = "UPDATE users SET totalExpense = $user_total_amount WHERE id = $user_id";
+        if(mysqli_query($conn, $user_query)) {
+            $activity_message = "transction added!";
+        }  else {
+            $activity_message = "transction falied!";
+        }
+    } else {
+        $activity_message = "transction falied!";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +86,7 @@
         <div class="main-content">
             <div class="margin-fix">
                 <div class="row topBar">
-                    <h1>Hello Candice</h1>
+                    <h1>Hello <?php echo $user_name; ?></h1>
                 </div>
                 <div class="mt-2 row">
                     <div class="col-lg-5 box">
@@ -72,7 +126,7 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Card Holder</th>
-                                                <td>Candice Cohan</td>
+                                                <td><?php echo $user_name; ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Card</th>
@@ -108,10 +162,10 @@
                 
                 <div class="bg-overlay"></div>
                 <div class="expense-form shadow">
-                    <form>
-                        <input type="text" placeholder="Enter deposit amount" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" autofocus required>
-                        <input type="text" placeholder="Enter description" onkeypress="return /[A-Za-z\s]/i.test(event.key)" required>
-                        <input type="submit" value="Add new expense" class="shadow addExpense-btn" >
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+                        <input name="expAmount" type="text" placeholder="Enter expense amount" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" autofocus required>
+                        <input name="expDesc" type="text" placeholder="Enter description" onkeypress="return /[A-Za-z\s]/i.test(event.key)" required>
+                        <input type="submit" value="Add new expense" class="shadow addExpense-btn" name="addExpense">
                         <button onclick="event.preventDefault();" class="close-btn">Close</button>
                     </form>
                 </div>
@@ -119,8 +173,7 @@
                 <div class="row mt-5 justify-content-around">
                     <!-- Table -->
                     <div class="col-lg-8">
-                        <h3 class="topBar mb-4">Recent Activity</h3>
-                        
+                        <h3 class="topBar  mb-4">Recent Activity</h3>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -130,34 +183,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">02/17 12:45pm</th>
-                                    <td class="description">AMAZON purchase</td>
-                                    <td>$ 75.99</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">02/18 03:08pm</th>
-                                    <td class="description">GEICO car insurance</td>
-                                    <td>$ 400.00</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">02/19 10:00am</th>
-                                    <td class="description">UBER car ride</td>
-                                    <td>$ 17.56</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">02/19 11:00am</th>
-                                    <td class="description">Trader Joe's Groceries</td>
-                                    <td>$ 80.50</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">02/19 2:00pm</th>
-                                    <td class="description">UBER Eats</td>
-                                    <td>$ 10.99</td>
-                                </tr>
+
+                                <?php 
+                                
+                                $q = "SELECT * FROM transctions WHERE user_id = $user_id";
+                                $result = mysqli_query($conn, $q);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                       echo  "<tr>".
+                                            "<th scope=\"row\">".$row['date']."</th>".
+                                            "<td class=\"description\">".$row['description']."</td>".
+                                            "<td>$ ".$row['amount']."</td>".
+                                        "</tr>";
+                                    }
+                                } else {
+                                    $activity_message = "No transctions available.";
+                                    echo  "<tr>".
+                                            "<th scope=\"row\">Date</th>".
+                                            "<td class=\"description\">Expense Description</td>".
+                                            "<td>$ 00.00</td>".
+                                        "</tr>";
+                                }
+                                ?>
+
+                                
+                                
                             </tbody>
                         </table>
+                        <small class="text-muted"><?php echo $activity_message; ?></small>
                         <button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button>
+                        
 
                     </div>
                     <!-- Table Above -->
@@ -165,7 +220,8 @@
                     <div class="col-lg-4 accDetailsBox">
                         <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
                         <div class="mt-4 accDetails shadow">
-                            <h6 class="h6-heading">Income/Expense</h6>
+                            <h2 class="mb-5 text-center">Total Expense</h2>
+                            <h1 class="text-center"><?php echo "$".$user_total_amount; ?></h1> 
                         </div>
                     </div>
                 </div>
