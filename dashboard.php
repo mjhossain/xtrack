@@ -1,5 +1,3 @@
-<!--
-
 <?php 
 require('functions/database.php');
 require('functions/functions.php');
@@ -52,7 +50,6 @@ if(isset($_POST['addExpense'])) {
 }
 
 ?>
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -224,7 +221,7 @@ if(isset($_POST['addExpense'])) {
                         <div class="mt-4 mb-4 accDetails shadow">
                             <div class="total-expense">
                                 <h2 class="mb-3 text-center">Total Expense</h2>
-                                <h1 class="text-center expense-amount"><?php echo "$".$user_total_amount; ?>$200.83</h1> 
+                                <h1 class="text-center expense-amount"><?php echo "$".$user_total_amount; ?></h1> 
                             </div>
                         </div>
                     </div>
