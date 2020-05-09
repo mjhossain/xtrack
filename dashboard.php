@@ -1,3 +1,4 @@
+<!--
 
 <?php 
 require('functions/database.php');
@@ -51,6 +52,7 @@ if(isset($_POST['addExpense'])) {
 }
 
 ?>
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +72,9 @@ if(isset($_POST['addExpense'])) {
 <body>
     <div class="body-wrap">
         <div class="side-nav">
-            <a href="#">
-                <div class="user-image-wrap">
-                    <div class="user-image"></div>
+            <a href="dashboard.php">
+                <div class="nav-logo-wrap">
+                    <div class="nav-logo"></div>
                 </div>
             </a>
             <nav>
@@ -219,9 +221,11 @@ if(isset($_POST['addExpense'])) {
 
                     <div class="col-lg-4 accDetailsBox">
                         <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
-                        <div class="mt-4 accDetails shadow">
-                            <h2 class="mb-5 text-center">Total Expense</h2>
-                            <h1 class="text-center"><?php echo "$".$user_total_amount; ?></h1> 
+                        <div class="mt-4 mb-4 accDetails shadow">
+                            <div class="total-expense">
+                                <h2 class="mb-3 text-center">Total Expense</h2>
+                                <h1 class="text-center expense-amount"><?php echo "$".$user_total_amount; ?>$200.83</h1> 
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -55,18 +55,19 @@ h1 {
     font-family: 'Sen', sans-serif;
 }
 
-.user-image-wrap {
+.nav-logo-wrap {
     width: 100%;
     height: 90px;
     margin-bottom: 10px;
 }
 
-.user-image {
+.nav-logo {
     width: 100%;
     height: 100%;
-    background-image: url(../images/dashboard-img/model.jpg);
+    background-image: url(../images/dashboard-img/black.png);
     background-position: center;
-    background-size: cover;
+    background-size: 50%;
+    background-repeat: no-repeat;
 }
 
 nav button {
@@ -324,4 +325,12 @@ input[type="submit"]{
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+}
+.total-expense{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.expense-amount{
+    color: grey;
 }
