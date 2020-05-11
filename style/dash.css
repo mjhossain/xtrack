@@ -6,7 +6,10 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Changa&display=swap');
+
 /*    font-family: 'Open Sans', sans-serif;*/
+
+
 /*    font-family: 'Comfortaa', cursive;*/
 
 * {
@@ -83,7 +86,7 @@ nav button img {
     opacity: .5;
 }
 
-nav button.active{
+nav button.active {
     border-right: 3px solid var(--green);
 }
 
@@ -105,28 +108,30 @@ button.logout {
     opacity: .5;
 }
 
-.table{
+.table {
     border: 1px solid #dfdfdf;
 }
 
-td{
-/*    font-family: 'Changa', sans-serif;*/
+td {
+    /*    font-family: 'Changa', sans-serif;*/
     font-family: 'Open Sans', sans-serif;
-/*    font-family: 'Comfortaa', cursive;*/
+    /*    font-family: 'Comfortaa', cursive;*/
     color: grey;
 }
 
-.description{
+.description {
     text-transform: capitalize;
+    color: black;
+    font-weight: 700;
 }
 
-.h6-heading{
+.h6-heading {
     font-size: 1.2em;
     text-transform: capitalize;
     text-align: center;
 }
 
-p.total-summary{
+p.total-summary {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
@@ -200,18 +205,20 @@ p.total-summary{
     width: 100%;
     /* color: white; */
     font-size: 1.3em;
-/*    font-weight: bolder;*/
+    /*    font-weight: bolder;*/
     transition-duration: 0.3s;
     font-family: 'Changa', sans-serif;
     outline: none;
 }
-.addExpense:focus{
+
+.addExpense:focus {
     outline: none;
 }
 
 .addExpense:hover {
     transform: scale(1.04);
 }
+
 
 /* .addExpBtn {
     padding: 20px 0 20px 25px;
@@ -226,18 +233,18 @@ p.total-summary{
     font-weight: bolder;
 }
 
-.see-all{
+.see-all {
     font-family: 'Open Sans', sans-serif;
     text-transform: capitalize;
 }
 
-.expense-form{
+.expense-form {
     z-index: 1000;
     position: absolute;
     left: 50%;
     top: 50%;
     width: 400px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     visibility: visible;
     background-color: whitesmoke;
@@ -248,50 +255,51 @@ p.total-summary{
     display: none;
 }
 
-.bg-overlay{
+.bg-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(255,255,255,.6);
+    background-color: rgba(255, 255, 255, .6);
     z-index: 1;
     display: none;
 }
 
 @supports ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
-    .bg-overlay{
+    .bg-overlay {
         -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
     }
 }
 
-.show{
+.show {
     display: block;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.expense-form input[type="text"],input[type="submit"]{
+.expense-form input[type="text"],
+input[type="submit"] {
     text-transform: capitalize;
-    padding:10px;
-    width:100%;
-    margin-bottom:10px;
-    border-radius:10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
     border: 1px solid #dfdfdf;
     outline: none;
     font-size: 1.3em;
     font-family: 'Open Sans', sans-serif;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     background-color: var(--green);
     font-family: 'Changa', sans-serif;
 }
 
-.expense-form button{
+.expense-form button {
     border: none;
     background-color: transparent;
     font-size: 1.1em;
@@ -301,7 +309,7 @@ input[type="submit"]{
     font-family: 'Open Sans', sans-serif;
 }
 
-.card-wrap{
+.card-wrap {
     width: 300px;
     height: 150px;
     position: relative;
@@ -310,27 +318,46 @@ input[type="submit"]{
     transform: translateX(-50%);
     box-sizing: border-box;
 }
-.credit-card{
+
+.credit-card {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     background-color: burlywood;
     display: none;
 }
-.box2 .table, .box3 .table{
+
+.box2 .table,
+.box3 .table {
     border: none;
 }
-.center-table{
+
+.center-table {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
 }
-.total-expense{
+
+.total-expense {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
-.expense-amount{
+
+.expense-amount {
     color: grey;
+}
+
+
+/*  Table */
+
+.date {
+    /* color: #929292; */
+    font-weight: normal;
+}
+
+.amount {
+    color: #000;
+    font-weight: 900;
 }

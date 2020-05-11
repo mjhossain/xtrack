@@ -20,6 +20,10 @@ if(!isset($_SESSION['loggedIn'])) {
     $user_name = $_SESSION['name'];
     $user_total_amount = getAmount($conn, $user_id);
 
+
+    $today = date('m/d', time());
+    // echo $today;
+
 }
 
 
@@ -34,7 +38,10 @@ if(isset($_POST['addExpense'])) {
 
     $user_total_amount = getAmount($conn, $user_id);
 
-    $query = "INSERT INTO transctions(user_id, description, amount) VALUES ($user_id, '$expDesc', $expAmount)";
+    date_default_timezone_set('America/New_York');
+    $now = date('Y-m-d H:i:s');
+
+    $query = "INSERT INTO transctions(user_id, description, amount, date) VALUES ($user_id, '$expDesc', $expAmount, '$now')";
 
     if(mysqli_query($conn, $query)) {
         $user_total_amount = $user_total_amount + $expAmount;
@@ -99,6 +106,20 @@ if(isset($_POST['addExpense'])) {
                             <h6 class="h6-heading mb-0">Total Transaction</h6>
                             <table class="table table-borderless center-table">
                                 <tbody>
+
+                                    <?php 
+                                        // Fix this
+                                        
+                                        $dateQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
+                                        $dateResult = mysqli_query($conn, $dateQuery);
+                                        if(mysqli_num_rows($dateResult) > 0) {
+                                            while($row = mysqli_fetch_assoc($dateResult)){
+                                                echo $row['date'];
+                                            }
+                                        } 
+                                    
+                                    ?>
+
                                     <tr>
                                         <th scope="row">Today</th>
                                         <td><p id="weekly-total" class="total-summary mb-0">$340.29</p></td>
@@ -189,10 +210,12 @@ if(isset($_POST['addExpense'])) {
                                 $result = mysqli_query($conn, $q);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
+                                        $time = strtotime($row['date']);
+                                        $formatTime = date("m/d g:i A", $time);
                                        echo  "<tr>".
-                                            "<th scope=\"row\">".$row['date']."</th>".
+                                            "<th class=\"date\" scope=\"row\">".$formatTime."</th>".
                                             "<td class=\"description\">".$row['description']."</td>".
-                                            "<td>$ ".$row['amount']."</td>".
+                                            "<td class=\"amount\">$ ".$row['amount']."</td>".
                                         "</tr>";
                                     }
                                 } else {
