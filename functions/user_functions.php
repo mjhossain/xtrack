@@ -24,7 +24,6 @@ function getTodaysExpense($conn, $user_id) {
         while($row = mysqli_fetch_assoc($result)){
             $rawDate = strtotime($row['date']);
             $today = date('m/d', $rawDate);
-            
             if($nowDate == $today) {
                 $todayTotal += $row['amount'];
             } 
@@ -41,9 +40,6 @@ function getWeeklyExpense($conn, $user_id) {
 
     $startWeek = date('m/d',strtotime("Monday This Week"));
     $endWeek = date('m/d',strtotime("Monday Next Week"));
-
-    // echo $startWeek . $endWeek;
-
     if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $dbDate = strtotime($row['date']);
@@ -56,8 +52,8 @@ function getWeeklyExpense($conn, $user_id) {
     return $weeklyExpense;
 }
 
-/*
-Method not working for unknown reasons
+
+
 function getMontlyExpense($conn, $user_id) {
     $monthlyQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
     $monthlyResult = mysqli_query($conn, $monthlyQuery);
@@ -65,21 +61,20 @@ function getMontlyExpense($conn, $user_id) {
     $month = date("n");
     
     if(mysqli_query($conn, $monthlyQuery)) {
-        // echo "Hello";
-        // echo $month;
         while($row = mysqli_fetch_assoc($monthlyResult)) {
             $dbDate = strtotime($row['date']);
             $formattedDate = date("n", $dbDate);
-            // echo $formattedDate;
             if($formattedDate == $month) {
                 $monthlyTotal += $row['amount']; 
             }
         }
+    } else {
+        echo mysqli_error($conn);
     }
     return $monthlyTotal;
 }
 
-*/
+
 
 
 

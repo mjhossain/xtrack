@@ -110,7 +110,7 @@ if(isset($_POST['addExpense'])) {
                                 <tbody>
                                     <tr>
                                     <?php 
-                                       // Method is defined in /functions/user_functions.php Line 17
+                                       // Method is defined in /functions/user_functions.php Line 18
                                        $todayTotal = getTodaysExpense($conn, $user_id);
                                     ?>
                                         <th scope="row">Today</th>
@@ -118,7 +118,7 @@ if(isset($_POST['addExpense'])) {
                                     </tr>
                                     <tr>
                                     <?php 
-                                       // Method is defined in /functions/user_functions.php Line 37
+                                       // Method is defined in /functions/user_functions.php Line 36
                                        $weeklyTotal = getWeeklyExpense($conn, $user_id);
                                     ?>    
                                         <th scope="row">Weekly</th>
@@ -126,23 +126,8 @@ if(isset($_POST['addExpense'])) {
                                     </tr>
                                     <tr>
                                     <?php 
-                                        $monthlyQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
-                                        $monthlyResult = mysqli_query($conn, $monthlyQuery);
-                                        $monthlyTotal = 0.00;
-                                        $month = date("n");
-                                        
-                                        if(mysqli_query($conn, $monthlyQuery)) {
-                                            // echo "Hello";
-                                            // echo $month;
-                                            while($row = mysqli_fetch_assoc($monthlyResult)) {
-                                                $dbDate = strtotime($row['date']);
-                                                $formattedDate = date("n", $dbDate);
-                                                // echo $formattedDate;
-                                                if($formattedDate == $month) {
-                                                    $monthlyTotal += $row['amount']; 
-                                                }
-                                            }
-                                        }
+                                        // Method is defined in /functions/user_functions.php Line 57
+                                        $monthlyTotal = getMontlyExpense($conn, $user_id);
                                     ?> 
                                         <th scope="row">Monthly</th>
                                         <td><p id="monthly-total" class="total-summary mb-0">$<?php echo $monthlyTotal; ?></p></td>
