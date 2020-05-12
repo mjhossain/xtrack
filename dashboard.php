@@ -125,8 +125,27 @@ if(isset($_POST['addExpense'])) {
                                         <td><p id="weekly-total" class="total-summary mb-0">$<?php echo $weeklyTotal; ?></p></td>
                                     </tr>
                                     <tr>
+                                    <?php 
+                                        $monthlyQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
+                                        $monthlyResult = mysqli_query($conn, $monthlyQuery);
+                                        $monthlyTotal = 0.00;
+                                        $month = date("n");
+                                        
+                                        if(mysqli_query($conn, $monthlyQuery)) {
+                                            // echo "Hello";
+                                            // echo $month;
+                                            while($row = mysqli_fetch_assoc($monthlyResult)) {
+                                                $dbDate = strtotime($row['date']);
+                                                $formattedDate = date("n", $dbDate);
+                                                // echo $formattedDate;
+                                                if($formattedDate == $month) {
+                                                    $monthlyTotal += $row['amount']; 
+                                                }
+                                            }
+                                        }
+                                    ?> 
                                         <th scope="row">Monthly</th>
-                                        <td><p id="monthly-total" class="total-summary mb-0">$989.97</p></td>
+                                        <td><p id="monthly-total" class="total-summary mb-0">$<?php echo $monthlyTotal; ?></p></td>
                                     </tr>
                                 </tbody>
                             </table>

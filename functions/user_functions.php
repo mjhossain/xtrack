@@ -1,6 +1,6 @@
 <?php
 require('database.php');
-// date_default_timezone_set('America/New_York');
+date_default_timezone_set('America/New_York');
 
 function getAmount($connection, $user_id) {
     $amount = 0.00;
@@ -56,8 +56,30 @@ function getWeeklyExpense($conn, $user_id) {
     return $weeklyExpense;
 }
 
+/*
+Method not working for unknown reasons
+function getMontlyExpense($conn, $user_id) {
+    $monthlyQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
+    $monthlyResult = mysqli_query($conn, $monthlyQuery);
+    $monthlyTotal = 0.00;
+    $month = date("n");
+    
+    if(mysqli_query($conn, $monthlyQuery)) {
+        // echo "Hello";
+        // echo $month;
+        while($row = mysqli_fetch_assoc($monthlyResult)) {
+            $dbDate = strtotime($row['date']);
+            $formattedDate = date("n", $dbDate);
+            // echo $formattedDate;
+            if($formattedDate == $month) {
+                $monthlyTotal += $row['amount']; 
+            }
+        }
+    }
+    return $monthlyTotal;
+}
 
-
+*/
 
 
 
