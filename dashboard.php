@@ -4,7 +4,7 @@ require('functions/functions.php');
 require('functions/user_functions.php');
 session_start();
 
-
+date_default_timezone_set('America/New_York');
 
 
 
@@ -20,8 +20,9 @@ if(!isset($_SESSION['loggedIn'])) {
     $user_name = $_SESSION['name'];
     $user_total_amount = getAmount($conn, $user_id);
 
-
+    date_default_timezone_set('America/New_York');
     $today = date('m/d', time());
+    // echo $today;
     // echo $today;
 
 }
@@ -38,8 +39,9 @@ if(isset($_POST['addExpense'])) {
 
     $user_total_amount = getAmount($conn, $user_id);
 
-    date_default_timezone_set('America/New_York');
+    
     $now = date('Y-m-d H:i:s');
+
 
     $query = "INSERT INTO transctions(user_id, description, amount, date) VALUES ($user_id, '$expDesc', $expAmount, '$now')";
 
@@ -106,27 +108,21 @@ if(isset($_POST['addExpense'])) {
                             <h6 class="h6-heading mb-0">Total Transaction</h6>
                             <table class="table table-borderless center-table">
                                 <tbody>
-
-                                    <?php 
-                                        // Fix this
-                                        
-                                        $dateQuery = "SELECT * FROM transctions WHERE user_id = $user_id";
-                                        $dateResult = mysqli_query($conn, $dateQuery);
-                                        if(mysqli_num_rows($dateResult) > 0) {
-                                            while($row = mysqli_fetch_assoc($dateResult)){
-                                                echo $row['date'];
-                                            }
-                                        } 
-                                    
-                                    ?>
-
                                     <tr>
+                                    <?php 
+                                       // Method is defined in /functions/user_functions.php Line 17
+                                       $todayTotal = getTodaysExpense($conn, $user_id);
+                                    ?>
                                         <th scope="row">Today</th>
-                                        <td><p id="weekly-total" class="total-summary mb-0">$340.29</p></td>
+                                        <td><p id="weekly-total" class="total-summary mb-0">$<?php echo $todayTotal; ?></p></td>
                                     </tr>
                                     <tr>
+                                    <?php 
+                                       // Method is defined in /functions/user_functions.php Line 37
+                                       $weeklyTotal = getWeeklyExpense($conn, $user_id);
+                                    ?>    
                                         <th scope="row">Weekly</th>
-                                        <td><p id="weekly-total" class="total-summary mb-0">$340.29</p></td>
+                                        <td><p id="weekly-total" class="total-summary mb-0">$<?php echo $weeklyTotal; ?></p></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Monthly</th>
