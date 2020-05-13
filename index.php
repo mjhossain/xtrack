@@ -1,3 +1,12 @@
+
+<?php 
+
+session_start();
+
+isset($_SESSION['loggedIn']) ? header('Location: dashboard.php') : null;
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
