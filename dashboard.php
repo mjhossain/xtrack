@@ -12,8 +12,8 @@ date_default_timezone_set('America/New_York');
 if(!isset($_SESSION['loggedIn'])) {
     header('Location: index.php');
 } else {
-
-    $activity_message = "";
+    
+    $activity_message = $_SESSION['expense_message'];
 
     $user_id = $_SESSION['user_id'];
     $user_email = $_SESSION['email'];
@@ -32,32 +32,32 @@ if(!isset($_SESSION['loggedIn'])) {
 
 
 
-
+/*
 if(isset($_POST['addExpense'])) {
-    $expAmount = safeInput($_POST['expAmount']);
-    $expDesc = safeInput($_POST['expDesc']);
+    // $expAmount = safeInput($_POST['expAmount']);
+    // $expDesc = safeInput($_POST['expDesc']);
 
-    $user_total_amount = getAmount($conn, $user_id);
+    // $user_total_amount = getAmount($conn, $user_id);
 
     
-    $now = date('Y-m-d H:i:s');
+    // $now = date('Y-m-d H:i:s');
 
 
-    $query = "INSERT INTO transctions(user_id, description, amount, date) VALUES ($user_id, '$expDesc', $expAmount, '$now')";
+    // $query = "INSERT INTO transctions(user_id, description, amount, date) VALUES ($user_id, '$expDesc', $expAmount, '$now')";
 
-    if(mysqli_query($conn, $query)) {
-        $user_total_amount = $user_total_amount + $expAmount;
-        $user_query = "UPDATE users SET totalExpense = $user_total_amount WHERE id = $user_id";
-        if(mysqli_query($conn, $user_query)) {
-            $activity_message = "transction added!";
-        }  else {
-            $activity_message = "transction falied!";
-        }
-    } else {
-        $activity_message = "transction falied!";
-    }
+    // if(mysqli_query($conn, $query)) {
+    //     $user_total_amount = $user_total_amount + $expAmount;
+    //     $user_query = "UPDATE users SET totalExpense = $user_total_amount WHERE id = $user_id";
+    //     if(mysqli_query($conn, $user_query)) {
+    //         $_SESSION['expense_message'] = "transction added!";
+    //     }  else {
+    //         $_SESSION['expense_message'] = "transction falied!";
+    //     }
+    // } else {
+    //     $_SESSION['expense_message'] = "transction falied!";
+    // }
 }
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +86,7 @@ if(isset($_POST['addExpense'])) {
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item active" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
                 <a href="#" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
-                <a href="#" title="Support"><button class="nav-item"><img src="images/dashboard-img/headset.png" width="40%"></button></a>
+                <a href="#" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
@@ -182,7 +182,7 @@ if(isset($_POST['addExpense'])) {
                 
                 <div class="bg-overlay"></div>
                 <div class="expense-form shadow">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+                    <form method="post" action="add_expense.php">
                         <input name="expAmount" type="text" placeholder="Enter expense amount" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" autofocus required>
                         <input name="expDesc" type="text" placeholder="Enter description" onkeypress="return /[A-Za-z\s]/i.test(event.key)" required>
                         <input type="submit" value="Add new expense" class="shadow addExpense-btn" name="addExpense">
