@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>XTrack | Account</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/dash.css">
+    <link rel="stylesheet" href="./style/account.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="body-wrap">
+        <div class="side-nav">
+            <a href="dashboard.php">
+                <div class="nav-logo-wrap">
+                    <div class="nav-logo"></div>
+                </div>
+            </a>
+            <nav>
+                <a href="dashboard.php" title="Dashboard"><button class="nav-item" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
+                <a href="#" title="Account"><button class="nav-item active"><img src="images/dashboard-img/user.png" width="40%"></button></a>
+                <a href="transctions.php" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+<!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
+            </nav>
+            <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
+        </div>
+        <div class="main-content">
+            <div class="margin-fix">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="account-detail-wrap">
+                                <div class="first-initial mb-3">at</div>
+                                <h2>Anup Thapa</h2>
+                                <form class="update-info">
+                                    <table class="table table-borderless mt-4 mb-4">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Full Name</th>
+                                                <td><input type="text" value="Anup Thapa" class="fullName"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Phone #</th>
+                                                <td><input type="text" value="3478457208"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Email Address</th>
+                                                <td><input type="email" value="anup@gmail.com"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Password</th>
+                                                <td><input type="password" value="Anoop123"></td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                    <button class="edit-btn btn btn-secondary btn shadow">Edit Info</button>
+                                    <input type="submit" value="Save Changes" class="save-btn btn btn-secondary shadow">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- <script src="js/charts.js"></script> -->
+    <script>
+        $('.addExpense').click(function(){
+            $('.bg-overlay, .expense-form').css("display","block")
+        })
+        $('.close-btn').click(function(){
+            $('.bg-overlay, .expense-form').css("display","none")
+        })
+        $('.edit-btn').click(function(){
+            $('.fullName').focus()
+            $('.save-btn').css("display","block")
+            $('.edit-btn').css("display","none")
+        })
+        $('.save-btn').click(function(){
+            $('.save-btn').css("display","none")
+            $('.edit-btn').css("display","block")
+        })
+    </script>
+</body>
+
+</html>
