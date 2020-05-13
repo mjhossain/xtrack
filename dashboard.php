@@ -12,7 +12,6 @@ date_default_timezone_set('America/New_York');
 if(!isset($_SESSION['loggedIn'])) {
     header('Location: index.php');
 } else {
-    
     $activity_message = $_SESSION['expense_message'];
 
     $user_id = $_SESSION['user_id'];
@@ -54,8 +53,8 @@ if(!isset($_SESSION['loggedIn'])) {
             </a>
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item active" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
-                <a href="#" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
-                <a href="transctions.php" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="transactions.php" title="All Transactions"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="account.php" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>

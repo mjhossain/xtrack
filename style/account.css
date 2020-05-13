@@ -8,7 +8,8 @@
     box-shadow: 0px 8px 18px -1px rgba(0,0,0,0.1);
     border-radius: 20px;
 }
-.first-initial{
+.initials{
+    color: #34EEA0;
     text-transform: uppercase;
     text-align: center;
     line-height: 100px;
@@ -56,6 +57,7 @@ form.update-info input[type = "submit"]{
     font-size: 1.2em;
     padding:5px;
     display: none;
+    font-family: 'Open Sans', sans-serif;
 }
 button.edit-btn{
     font-size: 1.2em;
@@ -65,9 +67,38 @@ button.edit-btn{
     z-index: 1;
     border-radius: 5px;
     border: none;
+    font-family: 'Open Sans', sans-serif;
 }
 button.edit-btn:hover{border: none;}
-
+p.member-since{
+    text-align: center;
+    color: gray;
+    font-family: 'Open Sans', sans-serif;
+}
+.delete-row{
+    text-align: center;
+}
+.delete-btn{
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    display: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.delete-btn:focus{outline: none;}
+.confirm-msg{
+    color: grey;
+    display: none;
+}
+a.confirm-link{
+    display: none;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
 @media only screen and (min-height:700px){
     .center{
         margin-top: 0px;
