@@ -27,37 +27,6 @@ if(!isset($_SESSION['loggedIn'])) {
 
 }
 
-
-
-
-
-
-/*
-if(isset($_POST['addExpense'])) {
-    // $expAmount = safeInput($_POST['expAmount']);
-    // $expDesc = safeInput($_POST['expDesc']);
-
-    // $user_total_amount = getAmount($conn, $user_id);
-
-    
-    // $now = date('Y-m-d H:i:s');
-
-
-    // $query = "INSERT INTO transctions(user_id, description, amount, date) VALUES ($user_id, '$expDesc', $expAmount, '$now')";
-
-    // if(mysqli_query($conn, $query)) {
-    //     $user_total_amount = $user_total_amount + $expAmount;
-    //     $user_query = "UPDATE users SET totalExpense = $user_total_amount WHERE id = $user_id";
-    //     if(mysqli_query($conn, $user_query)) {
-    //         $_SESSION['expense_message'] = "transction added!";
-    //     }  else {
-    //         $_SESSION['expense_message'] = "transction falied!";
-    //     }
-    // } else {
-    //     $_SESSION['expense_message'] = "transction falied!";
-    // }
-}
-*/
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +55,7 @@ if(isset($_POST['addExpense'])) {
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item active" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
                 <a href="#" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
-                <a href="#" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="transctions.php" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
