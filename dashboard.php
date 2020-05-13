@@ -202,7 +202,7 @@ if(!isset($_SESSION['loggedIn'])) {
                             </tbody>
                         </table>
                         <small class="text-muted"><?php echo $activity_message; ?></small>
-                        <button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button>
+                        <a href="transctions.php"><button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button></a>
                         
 
                     </div>
