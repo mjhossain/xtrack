@@ -206,7 +206,7 @@ if(isset($_POST['addExpense'])) {
 
                                 <?php 
                                 
-                                $q = "SELECT * FROM transctions WHERE user_id = $user_id";
+                                $q = "SELECT * FROM transctions WHERE user_id = $user_id LIMIT 5";
                                 $result = mysqli_query($conn, $q);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
