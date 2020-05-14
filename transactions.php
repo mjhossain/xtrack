@@ -53,17 +53,14 @@ if(!isset($_SESSION['loggedIn'])) {
             </a>
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
-                <a href="#" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
-                <a href="#" title="Support"><button class="nav-item  active"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="transactions.php" title="All Transactions"><button class="nav-item  active"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="account.php" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
         </div>
         <div class="main-content">
             <div class="margin-fix">
-                <div class="row topBar">
-                    <h1>Hello <?php echo $user_name; ?></h1>
-                </div>
                 <div class="col-lg-12 mt-5">
                         <h3 class="topBar  mb-4 text-center">All Transctions</h3>
                         <table class="table table-hover">

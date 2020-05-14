@@ -12,7 +12,6 @@ date_default_timezone_set('America/New_York');
 if(!isset($_SESSION['loggedIn'])) {
     header('Location: index.php');
 } else {
-    
     $activity_message = $_SESSION['expense_message'];
 
     $user_id = $_SESSION['user_id'];
@@ -54,8 +53,8 @@ if(!isset($_SESSION['loggedIn'])) {
             </a>
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item active" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
-                <a href="#" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
-                <a href="transctions.php" title="Support"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="transactions.php" title="All Transactions"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
+                <a href="account.php" title="Account"><button class="nav-item"><img src="images/dashboard-img/user.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
@@ -63,7 +62,7 @@ if(!isset($_SESSION['loggedIn'])) {
         <div class="main-content">
             <div class="margin-fix">
                 <div class="row topBar">
-                    <h1>Hello <?php echo $user_name; ?></h1>
+                    <h1 class="first-name"></h1>
                 </div>
                 <div class="mt-2 row">
                     <div class="col-lg-5 box">
@@ -202,7 +201,7 @@ if(!isset($_SESSION['loggedIn'])) {
                             </tbody>
                         </table>
                         <small class="text-muted"><?php echo $activity_message; ?></small>
-                        <a href="transctions.php"><button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button></a>
+                        <a href="transactions.php"><button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button></a>
                         
 
                     </div>
@@ -223,6 +222,11 @@ if(!isset($_SESSION['loggedIn'])) {
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--Get first name and display-->
+    <script>
+        var name = "<?php echo $user_name;?>".split(' ').slice(0, -1).join(' ');
+        $('.first-name').html(`Hello ${name}`)
+    </script>
     <!-- <script src="js/charts.js"></script> -->
     <script>
         $('.addExpense').click(function(){

@@ -3,6 +3,8 @@ require('functions/database.php');
 require('functions/functions.php');
 session_start();
 
+date_default_timezone_set('America/New_York');
+
 if(isset($_SESSION['loggedIn'])) {
     header('Location: dashboard.php');
 } else {
@@ -23,14 +25,16 @@ if(isset($_SESSION['loggedIn'])) {
                     $_SESSION['name'] = $row['fullName'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['totalExpense'] = $row['totalExpense'];
+                    $_SESSION['phone'] = $row['phone'];
+                    $getDate = strtotime($row['regDate']);
+                    $_SESSION['reg_date'] = date('m/d/y', $getDate);
                     header('Location: dashboard.php');
                 } else {
                     echo "Password Verification Failed!!";
                 }
             }
         }
-    } else {
-    }
+    } 
 
 }
 ?>
