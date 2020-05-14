@@ -62,7 +62,7 @@ if(!isset($_SESSION['loggedIn'])) {
         <div class="main-content">
             <div class="margin-fix">
                 <div class="row topBar">
-                    <h1>Hello <?php echo $user_name; ?></h1>
+                    <h1 class="first-name"></h1>
                 </div>
                 <div class="mt-2 row">
                     <div class="col-lg-5 box">
@@ -201,7 +201,7 @@ if(!isset($_SESSION['loggedIn'])) {
                             </tbody>
                         </table>
                         <small class="text-muted"><?php echo $activity_message; ?></small>
-                        <a href="transctions.php"><button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button></a>
+                        <a href="transactions.php"><button class="see-all mt-1 mb-4 btn btn-secondary btn-lg btn-block shadow">View all transaction</button></a>
                         
 
                     </div>
@@ -222,6 +222,11 @@ if(!isset($_SESSION['loggedIn'])) {
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--Get first name and display-->
+    <script>
+        var name = "<?php echo $user_name;?>".split(' ').slice(0, -1).join(' ');
+        $('.first-name').html(`Hello ${name}`)
+    </script>
     <!-- <script src="js/charts.js"></script> -->
     <script>
         $('.addExpense').click(function(){

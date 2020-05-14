@@ -86,30 +86,29 @@ if(!isset($_SESSION['loggedIn'])) {
                     <div class="row">
                         <div class="col-12">
                             
-<!--                            <h1><?php echo $message;?></h1>-->
-                            
                             <div class="account-detail-wrap">
                                 <div class="initials"></div>
                                 <h2 class="mt-4"><?php echo $user_name; ?></h2>
                                 <p class="member-since mt-3">Member since <?php echo $reg_date; ?></p>
-                                <form class="update-info" action="account.php" method="post">
+                                <form class="update-info" id="update-info" action="account.php" method="post" onsubmit="event.preventDefault();">
                                     <table class="table table-borderless mt-4 mb-4">
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Full Name</th>
-                                                <td><input type="text" value='<?php echo $user_name; ?>' class="fullName"  name="full-name"></td>
+                                                <td><input type="text" id="full-name" value='<?php echo $user_name; ?>' class="fullName"  name="full-name" disabled></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Phone #</th>
-                                                <td><input type="text" value="<?php echo $user_phone; ?>"  name="phone"></td>
+                                                <td><input type="text" id="phone" value="<?php echo $user_phone; ?>"  name="phone" disabled maxlength="14"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Email Address</th>
-                                                <td><input type="email" value="<?php echo $user_email; ?>"  name="email"></td>
+                                                <td><input type="email" id="email" value="<?php echo $user_email; ?>"  name="email" disabled></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <input type="submit" name="save" value="Save Changes" class="save-btn btn btn-secondary shadow mt-4">
+                                    <input type="submit" name="save" value="Save Changes" class="save-btn btn btn-secondary shadow mt-4" onclick="validateInput();">
+                                    <button class="cancel-btn mt-4" onclick="window.location.reload();">Cancel</button>
                                 </form>
                                 
                                 <div class="delete-row">
@@ -128,7 +127,62 @@ if(!isset($_SESSION['loggedIn'])) {
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <!-- <script src="js/charts.js"></script> -->
+    <!--Script for making phone input format work-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <!--Script for making phone input format work-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    <!--Script for phone format on input-->
+    <script>
+        var phones = [{ "mask": "(###) ###-####"}, { "mask": "(###) ###-##############"}];
+        $('#phone').inputmask({
+            mask: phones,
+            greedy: false,
+            definitions: { '#': { validator: "[0-9]", cardinality: 1}} 
+        });
+    </script>
+    <!-- Script for validating input fields and submitting the form-->
+    <script>
+        function validateInput(){
+            var fullname = $('#full-name').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            
+            var errors = [];
+            
+            if (!fullname.match(/^[A-Za-z\s]+$/)) {
+                $("#full-name").css("border","1px solid red");
+                errors.push("fullname error");
+            }
+            $('#full-name').on("focus", function() {
+                $("#full-name").css("border","none");
+                remove_array_element(errors, "fullname error");
+            });
+            
+            if (phone === "") {
+                $("#phone").css("border","1px solid red");
+                errors.push("phone error");
+            }
+            $('#phone').on("focus", function() {
+                $("#phone").css("border","none");
+                remove_array_element(errors, "phone error");
+            });
+            
+            if (!email.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/)) {
+                $("#email").css("border","1px solid red");
+                errors.push("email error");
+            }
+            $('#email').on("focus", function() {
+                $("#email").css("border","none");
+                remove_array_element(errors, "email error");
+            });
+            
+            if (errors.length == 0) {
+                document.getElementById("update-info").removeAttribute("onsubmit");
+                // alert('validation successful!')
+            }
+        }
+    </script>
+    <!--Script for showing and hiding modal-->
     <script>
         
         $('.addExpense').click(function(){
@@ -143,7 +197,7 @@ if(!isset($_SESSION['loggedIn'])) {
             $('.save-btn').css("display","block")
             $('.delete-btn').css("display","block")
             $('.edit-btn').css("display","none")
-//            $('.update-info').attr("onsubmit","event.preventDefault()")
+            $('.cancel-btn').css("display","block")
         })
         /*
         $('.save-btn').click(function(){
@@ -166,6 +220,7 @@ if(!isset($_SESSION['loggedIn'])) {
             $('.save-btn').removeAttr("disabled")
         })
     </script>
+    <!-- Script for getting initials from full name and displaying-->
     <script>
         var name = "<?php echo $user_name;?>"
         var getInitials = function (name) {
@@ -178,7 +233,6 @@ if(!isset($_SESSION['loggedIn'])) {
             }
             return initials
         }
-//        var initials = getIni
         $('.initials').html(getInitials(name))
     </script>
 </body>

@@ -99,6 +99,18 @@ a.confirm-link{
     text-decoration: none;
     color: #000;
 }
+.cancel-btn{
+    border: none;
+    background-color: transparent;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: grey;
+    display: none;
+}
+.cancel-btn:focus{
+    outline: none;
+}
 @media only screen and (min-height:700px){
     .center{
         margin-top: 0px;

@@ -61,9 +61,6 @@ if(!isset($_SESSION['loggedIn'])) {
         </div>
         <div class="main-content">
             <div class="margin-fix">
-                <div class="row topBar">
-                    <h1>Hello <?php echo $user_name; ?></h1>
-                </div>
                 <div class="col-lg-12 mt-5">
                         <h3 class="topBar  mb-4 text-center">All Transctions</h3>
                         <table class="table table-hover">
