@@ -1,9 +1,28 @@
 <?php
 // require('database.php');
 date_default_timezone_set('America/New_York');
+session_start();
 
 
+function getUserInfo($conn, $user_id) {
+    $user = array();
+    $user_sql = "SELECT * FROM users WHERE id = $user_id";
+    $result = mysqli_query($conn, $user_sql);
+    if(mysqli_query($conn, $user_sql)) {
+        while($row = mysqli_fetch_assoc($result)) {
+            $user['name'] = $row['fullName'];
+            $user['email'] = $row['email'];
+            $user['phone'] = $row['phone'];
+            $getDate = strtotime($row['regDate']);
+            $user['date'] = date('m/d/y', $getDate);;
+            $user['amount'] = $row['totalExpense'];
+        }
+    } else {
+        $_SESSION['user_message'] = "Server Error!";
+    }
 
+    return $user;
+}
 
 function getAmount($connection, $user_id) {
     $amount = 0.00;

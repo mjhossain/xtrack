@@ -75,7 +75,7 @@ if(!isset($_SESSION['loggedIn'])) {
 
                                 <?php 
                                 
-                                $q = "SELECT * FROM transctions WHERE user_id = $user_id";
+                                $q = "SELECT * FROM transctions WHERE user_id = $user_id ORDER BY id DESC";
                                 $result = mysqli_query($conn, $q);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){

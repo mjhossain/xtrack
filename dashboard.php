@@ -15,14 +15,12 @@ if(!isset($_SESSION['loggedIn'])) {
     $activity_message = $_SESSION['expense_message'];
 
     $user_id = $_SESSION['user_id'];
-    $user_email = $_SESSION['email'];
-    $user_name = $_SESSION['name'];
-    $user_total_amount = getAmount($conn, $user_id);
+
+    // Method declared in functions/user_functions.php
+    $user = getUserInfo($conn, $user_id);
 
     date_default_timezone_set('America/New_York');
     $today = date('m/d', time());
-    // echo $today;
-    // echo $today;
 
 }
 
@@ -62,7 +60,7 @@ if(!isset($_SESSION['loggedIn'])) {
         <div class="main-content">
             <div class="margin-fix">
                 <div class="row topBar">
-                    <h1 class="first-name"></h1>
+                    <h1 class="first-name">Hello <?php echo $user['name'] ?></h1>
                 </div>
                 <div class="mt-2 row">
                     <div class="col-lg-5 box">
@@ -114,7 +112,7 @@ if(!isset($_SESSION['loggedIn'])) {
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Card Holder</th>
-                                                <td><?php echo $user_name; ?></td>
+                                                <td><?php echo $user['name']; ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Card</th>
@@ -212,7 +210,7 @@ if(!isset($_SESSION['loggedIn'])) {
                         <div class="mt-4 mb-4 accDetails shadow">
                             <div class="total-expense">
                                 <h2 class="mb-3 text-center">Total Expense</h2>
-                                <h1 class="text-center expense-amount"><?php echo "$".$user_total_amount; ?></h1> 
+                                <h1 class="text-center expense-amount"><?php echo "$".$user['amount']; ?></h1> 
                             </div>
                         </div>
                     </div>
@@ -224,8 +222,8 @@ if(!isset($_SESSION['loggedIn'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <!--Get first name and display-->
     <script>
-        var name = "<?php echo $user_name;?>".split(' ').slice(0, -1).join(' ');
-        $('.first-name').html(`Hello ${name}`)
+        // var name = "<?php //echo $user['name'];?>".split(' ').slice(0, -1).join(' ');
+        // $('.first-name').html(`Hello ${name}`)
     </script>
     <!-- <script src="js/charts.js"></script> -->
     <script>

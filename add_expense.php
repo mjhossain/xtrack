@@ -12,10 +12,11 @@ if(!isset($_SESSION['loggedIn'])) {
         header('Location: dashboard.php');
     } else {
         $user_id = $_SESSION['user_id'];
+        $user = getUserInfo($conn, $user_id);
         $expAmount = safeInput($_POST['expAmount']);
         $expDesc = safeInput($_POST['expDesc']);
     
-        $user_total_amount = getAmount($conn, $user_id);
+        $user_total_amount = $user['amount'];
     
         
         $now = date('Y-m-d H:i:s');

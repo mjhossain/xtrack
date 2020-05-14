@@ -11,18 +11,13 @@ if(!isset($_SESSION['loggedIn'])) {
 } else {
 
     $user_id = $_SESSION['user_id'];
-    $user_email = $_SESSION['email'];
-    $user_name = $_SESSION['name'];
-    $user_phone = $_SESSION['phone'];
-    $reg_date = $_SESSION['reg_date'];
-
-   
+    $user = getUserInfo($conn, $user_id);
+    
     
     if(isset($_POST['save'])) {
-//            $message = "Working!";
-        $fullname = $_POST['full-name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
+        $fullname = safeInput($_POST['full-name']);
+        $email = safeInput($_POST['email']);
+        $phone = safeInput($_POST['phone']);
         
        
         
@@ -38,13 +33,7 @@ if(!isset($_SESSION['loggedIn'])) {
     } else {
         
     }
-    
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+
 }
 
 ?>
@@ -89,21 +78,21 @@ if(!isset($_SESSION['loggedIn'])) {
                             <div class="account-detail-wrap">
                                 <div class="initials"></div>
                                 <h2 class="mt-4"><?php echo $user_name; ?></h2>
-                                <p class="member-since mt-3">Member since <?php echo $reg_date; ?></p>
+                                <p class="member-since mt-3">Member since <?php echo $user['date']; ?></p>
                                 <form class="update-info" id="update-info" action="account.php" method="post" onsubmit="event.preventDefault();">
                                     <table class="table table-borderless mt-4 mb-4">
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Full Name</th>
-                                                <td><input type="text" id="full-name" value='<?php echo $user_name; ?>' class="fullName"  name="full-name" disabled></td>
+                                                <td><input type="text" id="full-name" value='<?php echo $user['name']; ?>' class="fullName"  name="full-name" disabled></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Phone #</th>
-                                                <td><input type="text" id="phone" value="<?php echo $user_phone; ?>"  name="phone" disabled maxlength="14"></td>
+                                                <td><input type="text" id="phone" value="<?php echo $user['phone']; ?>"  name="phone" disabled maxlength="14"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Email Address</th>
-                                                <td><input type="email" id="email" value="<?php echo $user_email; ?>"  name="email" disabled></td>
+                                                <td><input type="email" id="email" size="25" value="<?php echo $user['email']; ?>"  name="email" disabled></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -222,7 +211,7 @@ if(!isset($_SESSION['loggedIn'])) {
     </script>
     <!-- Script for getting initials from full name and displaying-->
     <script>
-        var name = "<?php echo $user_name;?>"
+        var name = "<?php echo $user['name'];?>"
         var getInitials = function (name) {
             var parts = name.split(' ')
             var initials = ''

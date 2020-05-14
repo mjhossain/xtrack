@@ -22,12 +22,6 @@ if(isset($_SESSION['loggedIn'])) {
                 if(password_verify($password, $row['password'])) {
                     $_SESSION['loggedIn'] = true;
                     $_SESSION['user_id'] = $row['id'];
-                    $_SESSION['name'] = $row['fullName'];
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['totalExpense'] = $row['totalExpense'];
-                    $_SESSION['phone'] = $row['phone'];
-                    $getDate = strtotime($row['regDate']);
-                    $_SESSION['reg_date'] = date('m/d/y', $getDate);
                     header('Location: dashboard.php');
                 } else {
                     echo "Password Verification Failed!!";
