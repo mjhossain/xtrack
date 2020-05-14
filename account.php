@@ -15,13 +15,16 @@ if(!isset($_SESSION['loggedIn'])) {
     $user_name = $_SESSION['name'];
     $user_phone = $_SESSION['phone'];
     $reg_date = $_SESSION['reg_date'];
+
+   
     
     if(isset($_POST['save'])) {
 //            $message = "Working!";
-        $fullname = test_input($_POST['full-name']);
-        $email = test_input($_POST['email']);
-        $phone = test_input($_POST['phone']);
+        $fullname = $_POST['full-name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
         
+       
         
         $update_sql = "UPDATE users SET fullName = '$fullname', email = '$email', phone = '$phone' WHERE id = $user_id";
         
@@ -32,6 +35,8 @@ if(!isset($_SESSION['loggedIn'])) {
         }else{
             echo "Error:". " <br>". mysqli_error($conn);
         }
+    } else {
+        
     }
     
     function test_input($data) {
@@ -92,15 +97,15 @@ if(!isset($_SESSION['loggedIn'])) {
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Full Name</th>
-                                                <td><input type="text" value='<?php echo $user_name; ?>' class="fullName" disabled name="full-name"></td>
+                                                <td><input type="text" value='<?php echo $user_name; ?>' class="fullName"  name="full-name"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Phone #</th>
-                                                <td><input type="text" value="<?php echo $user_phone; ?>" disabled name="phone"></td>
+                                                <td><input type="text" value="<?php echo $user_phone; ?>"  name="phone"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Email Address</th>
-                                                <td><input type="email" value="<?php echo $user_email; ?>" disabled name="email"></td>
+                                                <td><input type="email" value="<?php echo $user_email; ?>"  name="email"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -140,13 +145,16 @@ if(!isset($_SESSION['loggedIn'])) {
             $('.edit-btn').css("display","none")
 //            $('.update-info').attr("onsubmit","event.preventDefault()")
         })
+        /*
         $('.save-btn').click(function(){
             $('input').attr("disabled","true")
             $('.save-btn').css("display","none")
             $('.delete-btn').css("display","none")
             $('.edit-btn').css("display","block")
-//            $('.update-info').removeAttr("onsubmit")
+            $('.update-info').submit()
+            // $('.update-info').removeAttr("onsubmit")
         })
+        */
         $('.delete-btn').click(function(){
             $('.confirm-msg').css("display","block")
             $('.confirm-link').css("display","inline-block")
