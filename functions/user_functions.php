@@ -1,6 +1,9 @@
 <?php
-require('database.php');
+// require('database.php');
 date_default_timezone_set('America/New_York');
+
+
+
 
 function getAmount($connection, $user_id) {
     $amount = 0.00;
