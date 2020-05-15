@@ -61,7 +61,7 @@ if(!isset($_SESSION['loggedIn'])) {
         </div>
         <div class="main-content">
             <div class="margin-fix">
-                <div class="col-lg-12 mt-5">
+                <div class="col-lg-12">
                         <h3 class="topBar  mb-4 text-center">All Transctions</h3>
                         <table class="table table-hover">
                             <thead>

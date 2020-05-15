@@ -23,6 +23,7 @@ if(!isset($_SESSION['loggedIn'])) {
     $today = date('m/d', time());
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -65,9 +66,7 @@ if(!isset($_SESSION['loggedIn'])) {
                     <div class="col-lg-5 box">
                         <div class="box1 shadow">
                             <h6 class="h6-heading">Expense Chart</h6>
-                            <div class="chart-wrap shadow">
-                                <canvas id="myChart" height="200px"></canvas>
-                            </div>
+                            <!-- <canvas id="myChart"></canvas> -->
                         </div>
                     </div>
                     <div class="col-lg-3 box">
@@ -234,58 +233,6 @@ if(!isset($_SESSION['loggedIn'])) {
         $('.close-btn').click(function(){
             $('.bg-overlay, .expense-form').css("display","none")
         })
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script>
-           var ctx = document.getElementById('myChart').getContext('2d');
-           
-           var myChart = new Chart(ctx, {
-               type: 'bar',
-               data: {
-                   labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                   datasets: [{
-                       label: 'Expense',
-                       data: [120.11, 85.83, 30.41, 55.86, 212.43, 30.12, 111.21],
-                       backgroundColor: [
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)',
-                           'RGBA(52, 238, 160, .2)'
-                       ],
-                       borderColor: [
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)',
-                           'RGBA(52, 238, 160, .7)'
-                       ],
-                       borderWidth: 1
-                   }]
-               },
-               options: {
-                   title: {
-                       display: true,
-                       text: 'Daily Expense'
-                   },
-                   scales: {
-                       yAxes: [{
-                           ticks: {
-                               beginAtZero: true,
-                               // Include a dollar sign in the ticks
-                               callback: function(value, index, values) {
-                                   return '$' + value;
-                               }
-                           }
-                       }],
-                   }
-               }
-           });
     </script>
 </body>
 
