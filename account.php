@@ -105,7 +105,7 @@ if(!isset($_SESSION['loggedIn'])) {
                                         <p class="confirm-msg mt-3 mb-0">
                                             Are you sure you want to delete your account?
                                         </p>
-                                        <a class="confirm-link" href="#">Yes</a><a class="confirm-link no" href="#">No</a>
+                                        <a class="confirm-link" href="delete_user.php">Yes</a><a class="confirm-link no" href="#">No</a>
                                     </div>
                                 <button class="edit-btn btn btn-secondary btn shadow mt-4">Edit Info</button>
                             </div>

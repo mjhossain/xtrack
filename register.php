@@ -20,7 +20,7 @@ if(isset($_SESSION['loggedIn'])){
 
 
         if($name == fasle || $email == false || $password == false) {
-            echo "Input wrong";
+            //echo "Input wrong";
         } else {
             
             $query = "INSERT INTO users(fullName, email, password, phone, totalExpense)".

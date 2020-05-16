@@ -64,7 +64,7 @@ function testEmail($email) {
     //echo "Email Test Passed!";
     return $email;
   } else {
-    //echo "Email Test Failed!";
+   //echo "Email Test Failed!";
     return false;
   }
 }

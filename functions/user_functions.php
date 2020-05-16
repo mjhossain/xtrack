@@ -24,6 +24,42 @@ function getUserInfo($conn, $user_id) {
     return $user;
 }
 
+function removeUser($conn, $user_id) {
+    $user_del = array("user" => false, "transctions" => false);
+    $user_del_sql = "DELETE FROM users WHERE id = $user_id";
+    $user_transctions_del = "SELECT * FROM transctions WHERE user_id = $user_id";
+    $transctions_result = mysqli_query($conn, $user_transctions_del);
+    $user_transctions = mysqli_num_rows($transctions_result);
+   
+    if(mysqli_query($conn, $user_del_sql)) {
+        $user_del["user"] = true;
+    } else {
+        echo mysqli_error($conn);
+    }
+
+    //echo $user_transctions;
+    if($user_transctions > 0) {
+        $delete_count = 0;
+        while($row = mysqli_fetch_assoc($transctions_result)) {
+            $id = $row['id'];
+            if(mysqli_query($conn, "DELETE FROM transctions WHERE id = $id")){
+                $delete_count++;
+            } else {
+                echo mysqli_error($conn);
+            }
+            
+        }
+
+        if($delete_count == $user_transctions){
+            $user_del["transctions"] = true;
+        }
+    } else {
+        $user_del["transctions"] = true;
+    }
+    //echo $delete_count;
+    return $user_del;
+}
+
 function getAmount($connection, $user_id) {
     $amount = 0.00;
     $expQuery = "SELECT * FROM users WHERE id=$user_id";
