@@ -23,7 +23,7 @@ if(!isset($_SESSION['loggedIn'])) {
         
         $update_sql = "UPDATE users SET fullName = '$fullname', email = '$email', phone = '$phone' WHERE id = $user_id";
         
-        if (mysqli_query($conn,$update_sql)) {
+        if (mysqli_query($conn, $update_sql)) {
             echo "Saved!";
             mysqli_close($conn);
             header("location: dashboard.php");

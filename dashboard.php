@@ -33,11 +33,10 @@ if(!isset($_SESSION['loggedIn'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style/dash.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <style>
-    </style>
+    <link rel="stylesheet" href="./style/dash.css">
 </head>
 
 <body>
@@ -65,8 +64,11 @@ if(!isset($_SESSION['loggedIn'])) {
                     <div class="col-lg-5 box">
                         <div class="box1 shadow">
                             <h6 class="h6-heading">Expense Chart</h6>
-                            <div class="chart-wrap shadow">
-                                <canvas id="myChart" height="200px"></canvas>
+                            <div class="card">
+                                <div class="card-body chartContainer">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -273,6 +275,7 @@ if(!isset($_SESSION['loggedIn'])) {
                        display: true,
                        text: 'Daily Expense'
                    },
+                   responsive: true,
                    scales: {
                        yAxes: [{
                            ticks: {
