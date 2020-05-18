@@ -61,17 +61,17 @@ if(!isset($_SESSION['loggedIn'])) {
                     <h1 class="first-name"></h1>
                 </div>
                 <div class="mt-2 row">
+                    
                     <div class="col-lg-5 box">
-                        <div class="box1 shadow">
-                            <h6 class="h6-heading">Expense Chart</h6>
-                            <div class="card">
-                                <div class="card-body chartContainer">
-                                    <canvas id="myChart"></canvas>
-                                </div>
-                                
+                        <div class="mb-4 accDetails shadow">
+                            <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
+                            <div class="total-expense">
+                                <h2 class="mb-3 text-center">Total Expense</h2>
+                                <h1 class="text-center expense-amount"><?php echo "$".$user['amount']; ?></h1> 
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-3 box">
                         <div class="box2 shadow">
                             <h6 class="h6-heading mb-0">Total Transaction</h6>
@@ -161,7 +161,7 @@ if(!isset($_SESSION['loggedIn'])) {
                 
                 <div class="row mt-5 justify-content-around">
                     <!-- Table -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <h3 class="topBar  mb-4">Recent Activity</h3>
                         <table class="table table-hover">
                             <thead>
@@ -207,6 +207,7 @@ if(!isset($_SESSION['loggedIn'])) {
 
                     </div>
                     <!-- Table Above -->
+<!--
 
                     <div class="col-lg-4 accDetailsBox">
                         <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
@@ -218,6 +219,7 @@ if(!isset($_SESSION['loggedIn'])) {
                         </div>
                     </div>
                 </div>
+-->
 
             </div>
         </div>

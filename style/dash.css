@@ -143,12 +143,14 @@ p.total-summary {
     font-family: 'Sen', sans-serif;
 }
 
+/*
 .box1 {
     background-color: var(--white);
     border-radius: 20px;
     padding: 15px 30px 15px 30px;
     height: auto;
 }
+*/
 
 .box2 {
     height: 100%;
@@ -166,7 +168,7 @@ p.total-summary {
 }
 
 .accDetailsBox {
-    height: 30vh;
+    height: auto;
     padding: 0 20px 0 20px;
 }
 
@@ -340,9 +342,11 @@ input[type="submit"] {
 }
 
 .total-expense {
-    position: relative;
+    width: 100%;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .expense-amount {
