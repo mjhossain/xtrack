@@ -31,7 +31,7 @@ if(isset($_SESSION['loggedIn'])){
                 header('Location: login.php');
             } else {
                 // Find a solution for what to do when DB error
-                echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                //echo "Error: " . $query . "<br>" . mysqli_error($conn);
             }
         
         }
