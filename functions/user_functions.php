@@ -31,11 +31,7 @@ function removeUser($conn, $user_id) {
     $transctions_result = mysqli_query($conn, $user_transctions_del);
     $user_transctions = mysqli_num_rows($transctions_result);
    
-    if(mysqli_query($conn, $user_del_sql)) {
-        $user_del["user"] = true;
-    } else {
-        echo mysqli_error($conn);
-    }
+    
 
     //echo $user_transctions;
     if($user_transctions > 0) {
@@ -55,6 +51,12 @@ function removeUser($conn, $user_id) {
         }
     } else {
         $user_del["transctions"] = true;
+    }
+
+    if(mysqli_query($conn, $user_del_sql)) {
+        $user_del["user"] = true;
+    } else {
+        echo mysqli_error($conn);
     }
     //echo $delete_count;
     return $user_del;
