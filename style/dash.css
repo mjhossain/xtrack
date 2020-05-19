@@ -156,7 +156,8 @@ p.total-summary {
     height: 100%;
     background-color: var(--white);
     border-radius: 20px;
-    padding: 15px 30px 15px 30px;
+    padding: 10px;
+    overflow: scroll;
 }
 
 .box3 {
@@ -200,17 +201,22 @@ p.total-summary {
 } */
 
 .addExpense {
-    height: 60px;
+    height: 50px;
     background-color: var(--green);
     border: none;
     border-radius: 20px;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     /* color: white; */
     font-size: 1.3em;
     /*    font-weight: bolder;*/
     transition-duration: 0.3s;
     font-family: 'Changa', sans-serif;
     outline: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
 }
 
 .addExpense:focus {
@@ -218,7 +224,7 @@ p.total-summary {
 }
 
 .addExpense:hover {
-    transform: scale(1.04);
+    transform: translateX(-50%) scale(1.04);
 }
 
 
@@ -334,19 +340,18 @@ input[type="submit"] {
     border: none;
 }
 
-.center-table {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
+.center-table{
+    margin-top: 10px;
 }
 
 .total-expense {
     width: 100%;
+/*
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+*/
 }
 
 .expense-amount {
@@ -370,4 +375,21 @@ input[type="submit"] {
     width: 100%;
     height: auto;
     margin: auto;
+}
+
+
+@media only screen and (min-height:700px){
+     .center-table {
+        position: relative;
+        top: 45%;
+        left: 0;
+        transform: translateY(-50%);
+
+    }
+    .expense-amount{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
 }

@@ -62,13 +62,13 @@ if(!isset($_SESSION['loggedIn'])) {
                 </div>
                 <div class="mt-2 row">
                     
-                    <div class="col-lg-5 box">
+                    <div class="col-lg-4 box">
                         <div class="mb-4 accDetails shadow">
-                            <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
                             <div class="total-expense">
-                                <h2 class="mb-3 text-center">Total Expense</h2>
+                                <h5 class="mb-3 text-center">Total Expense</h5>
                                 <h1 class="text-center expense-amount"><?php echo "$".$user['amount']; ?></h1> 
                             </div>
+                            <button class="addExpense shadow"><i class="fas fa-1x fa-plus mr-4"></i> Add Expense</button>
                         </div>
                     </div>
 
@@ -105,12 +105,12 @@ if(!isset($_SESSION['loggedIn'])) {
                             </table>
                         </div>
                     </div>
-                    <div class="col-lg-4 box">
+                    <div class="col-lg-5 box">
                         <div class="box3 shadow">
                             <h6 class="h6-heading mt-1">Card information</h6>
                             <div class="card-wrap">
                                 <div class="credit-card"></div>
-                                <div class="card-details mt-4">
+                                <div class="card-details">
                                     <table class="table table-borderless">
                                         <tbody>
                                             <tr>
@@ -161,7 +161,7 @@ if(!isset($_SESSION['loggedIn'])) {
                 
                 <div class="row mt-5 justify-content-around">
                     <!-- Table -->
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                         <h3 class="topBar  mb-4">Recent Activity</h3>
                         <table class="table table-hover">
                             <thead>
