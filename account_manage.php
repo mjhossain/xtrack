@@ -64,7 +64,7 @@ if(!isset($_SESSION['loggedIn'])) {
             <nav>
                 <a href="dashboard.php" title="Dashboard"><button class="nav-item" ><img src="images/dashboard-img/home.png" width="40%"></button></a>
                 <a href="transactions.php" title="All Transactions"><button class="nav-item"><img src="images/dashboard-img/list.png" width="40%"></button></a>
-                <a href="account.php" title="Account"><button class="nav-item active"><img src="images/dashboard-img/user.png" width="40%"></button></a>
+                <a href="account_manage.php" title="Account"><button class="nav-item active"><img src="images/dashboard-img/user.png" width="40%"></button></a>
 <!--                <a href="#"><button class="nav-item"><img src="images/dashboard-img/gear.png" width="40%"></button></a>-->
             </nav>
             <a href="logout.php"><button class="logout"><img src="images/dashboard-img/logout.png"  width="40%"></button></a>
