@@ -13,6 +13,7 @@ if(isset($_SESSION['loggedIn'])){
     $phoneErr = "";
     $emailErr = "";
     $passErr = "";
+    $serverErr = "";
     if(isset($_POST['register'])) {
         $name = testName($_POST['fullname']);
         $email = testEmail($_POST['email']);
@@ -36,8 +37,7 @@ if(isset($_SESSION['loggedIn'])){
                 session_unset();
                 header('Location: login.php');
             } else {
-                // Find a solution for what to do when DB error
-                //echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                $serverErr = "Sorry the Server is down at the moment! Please contact support. Sorry for any inconvienece.";
             }
         
         }
@@ -91,7 +91,7 @@ if(isset($_SESSION['loggedIn'])){
                       </div>
                       <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name="" id="sign-up-form" onsubmit="event.preventDefault()">
                           <h4>Life is good when you’re on top of your money</h4>
-
+                          <p class="text-danger" style="font-weight: bold;"><?php echo $serverErr; ?></p>
                           <input class="err-border" type="text" name="fullname" id="fullname" placeholder="Full Name" autofocus>
                           <p class="error-msg nameErr">
                             <?php echo $nameErr; ?>
