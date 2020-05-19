@@ -5,10 +5,17 @@ session_start();
 
 date_default_timezone_set('America/New_York');
 
+$loginMsg = "";
+
 if(isset($_SESSION['loggedIn'])) {
     header('Location: dashboard.php');
 } else {
     if(isset($_POST['login'])){
+
+        if($_POST['email'] == null || $_POST['password'] == null) {
+            $loginMsg = "Please enter email and password";
+        }
+
         $email = safeInput($_POST['email']);
         $password = mysqli_real_escape_string($_POST['password']);
 
@@ -24,7 +31,7 @@ if(isset($_SESSION['loggedIn'])) {
                     $_SESSION['user_id'] = $row['id'];
                     header('Location: dashboard.php');
                 } else {
-                    echo "Password Verification Failed!!";
+                    $loginMsg = "Password Verification Failed!!";
                 }
             }
         }
@@ -59,6 +66,7 @@ if(isset($_SESSION['loggedIn'])) {
                       </div>
                       <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                           <h4>Login and effortlessly manage your finances in one place</h4>
+                          <small><?php echo $loginMsg  . "<br>"; ?></small>
                           <input type="email" name="email" id="email" placeholder="Email Address" autofocus>
                           <input type="password" name="password" id="password" placeholder="Password">
                           <p class="error-msg"></p>

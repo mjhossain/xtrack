@@ -9,6 +9,10 @@ session_start();
 if(isset($_SESSION['loggedIn'])){
     header('Location: dashboard.php');
 } else {
+    $nameErr = "";
+    $phoneErr = "";
+    $emailErr = "";
+    $passErr = "";
     if(isset($_POST['register'])) {
         $name = testName($_POST['fullname']);
         $email = testEmail($_POST['email']);
@@ -20,7 +24,9 @@ if(isset($_SESSION['loggedIn'])){
 
 
         if($name == fasle || $email == false || $password == false) {
-            //echo "Input wrong";
+            !$name ? $nameErr = "Enter Valid Name" : null;
+            !$email ? $emailErr = "Enter Valid Email" : null;
+            !$password ? $passErr = "Enter Valid Password" : null;
         } else {
             
             $query = "INSERT INTO users(fullName, email, password, phone, totalExpense)".
@@ -87,16 +93,24 @@ if(isset($_SESSION['loggedIn'])){
                           <h4>Life is good when you’re on top of your money</h4>
 
                           <input class="err-border" type="text" name="fullname" id="fullname" placeholder="Full Name" autofocus>
-                          <p class="error-msg nameErr"></p>
+                          <p class="error-msg nameErr">
+                            <?php echo $nameErr; ?>
+                          </p>
 
                           <input type="text" name="phone" id="phone" placeholder="Phone #" maxlength="14">
-                          <p class="error-msg phoneErr"></p>
+                          <p class="error-msg phoneErr">
+                            <?php echo $phoneErr; ?>
+                          </p>
 
                           <input type="email" name="email" id="email" placeholder="Email Address">
-                          <p class="error-msg emailErr"></p>
+                          <p class="error-msg emailErr">
+                            <?php echo $emailErr; ?>
+                          </p>
 
                           <input type="password" name="password" id="password" placeholder="Password" oninput="checkPassword()">
-                          <p class="error-msg passwordErr"></p>
+                          <p class="error-msg passwordErr">
+                            <?php echo $passErr; ?>
+                          </p>
 
                           <input type="password" name="con-password" id="con-password" placeholder="Confirm Password">
                           <p class="error-msg conPasswordErr"></p>
@@ -149,6 +163,7 @@ if(isset($_SESSION['loggedIn'])){
 
       <!--Script for realtime update on password requirements list upon user input-->
       <script>
+      
           function checkPassword() {
               var password = $('#password').val();
               var confirm_password = $('#con-password').val();
@@ -181,6 +196,7 @@ if(isset($_SESSION['loggedIn'])){
                   $('.char-long').removeClass("isvalid");
               }
           }
+          
       </script>
 
   </body>
