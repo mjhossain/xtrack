@@ -28,8 +28,8 @@ isset($_SESSION['loggedIn']) ? header('Location: dashboard.php') : null;
       <header>
           <a href="index.php"><div class="logo"></div><span>Track</span></a>
           <nav>
-              <a href="">About</a>
-              <a href="">Team</a>
+              <!-- <a href="">About</a>
+              <a href="">Team</a> -->
 <!--              <a href="">Support</a>-->
           </nav>
           <a href="login.php"><button id="login">Login</button></a>
