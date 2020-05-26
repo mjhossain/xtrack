@@ -9,7 +9,7 @@ function safeInput($value) {
 
 
 function hashPassword($password) {
-  $password = mysqli_real_escape_string($password);
+  //$password = mysqli_real_escape_string($password);
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
   return $hashedPassword;
 }

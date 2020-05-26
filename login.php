@@ -3,45 +3,42 @@ require('functions/database.php');
 require('functions/functions.php');
 session_start();
 
-date_default_timezone_set('America/New_York');
-
 $loginMsg = "";
 
-if(isset($_SESSION['loggedIn'])) {
+if($_SESSION['loggedIn'] == true) {
     header('Location: dashboard.php');
 } else {
-    if(isset($_POST['login'])){
-
+    if(isset($_POST['login'])) {
+        
         if($_POST['email'] == null || $_POST['password'] == null) {
             $loginMsg = "Please enter email and password";
         } else {
-            $email = safeInput($_POST['email']);
-            $password = mysqli_real_escape_string($_POST['password']);
-
-            $query = "SELECT * FROM users where email = '$email'";
-            $result = mysqli_query($conn, $query);
             
+            $email = safeInput($_POST['email']);
+            //echo "here";
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            
+            $query = "SELECT * FROM users WHERE email = '$email'";
+            $result = mysqli_query($conn, $query);
+            //$hashPwd = hashPassword($_POST['password']);
             if(mysqli_num_rows($result) > 0) {
-                
                 while($row = mysqli_fetch_assoc($result)) {
-                    
+                    $pass = hashPassword($row['password']);
                     if(password_verify($password, $row['password'])) {
-                        //echo password_verify($password, $row['password']);
                         $_SESSION['loggedIn'] = true;
                         $_SESSION['user_id'] = $row['id'];
                         header('Location: dashboard.php');
                     } else {
-                        $loginMsg = "Password Verification Failed!!";
+                        $loginMsg = "Wrong Credintials";
                     }
                 }
             }
         }
-
-        
-    } 
-
+    }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
