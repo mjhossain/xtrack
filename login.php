@@ -14,27 +14,30 @@ if(isset($_SESSION['loggedIn'])) {
 
         if($_POST['email'] == null || $_POST['password'] == null) {
             $loginMsg = "Please enter email and password";
-        }
+        } else {
+            $email = safeInput($_POST['email']);
+            $password = mysqli_real_escape_string($_POST['password']);
 
-        $email = safeInput($_POST['email']);
-        $password = mysqli_real_escape_string($_POST['password']);
-
-        $query = "SELECT * FROM users where email = '$email' LIMIT 1";
-        $result = mysqli_query($conn, $query);
-        
-        if(mysqli_num_rows($result) > 0) {
+            $query = "SELECT * FROM users where email = '$email'";
+            $result = mysqli_query($conn, $query);
             
-            while($row = mysqli_fetch_assoc($result)) {
+            if(mysqli_num_rows($result) > 0) {
                 
-                if(password_verify($password, $row['password'])) {
-                    $_SESSION['loggedIn'] = true;
-                    $_SESSION['user_id'] = $row['id'];
-                    header('Location: dashboard.php');
-                } else {
-                    $loginMsg = "Password Verification Failed!!";
+                while($row = mysqli_fetch_assoc($result)) {
+                    
+                    if(password_verify($password, $row['password'])) {
+                        //echo password_verify($password, $row['password']);
+                        $_SESSION['loggedIn'] = true;
+                        $_SESSION['user_id'] = $row['id'];
+                        header('Location: dashboard.php');
+                    } else {
+                        $loginMsg = "Password Verification Failed!!";
+                    }
                 }
             }
         }
+
+        
     } 
 
 }
